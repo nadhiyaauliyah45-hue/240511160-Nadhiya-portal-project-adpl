@@ -1,157 +1,402 @@
-# Website Nadhiya — Portal Tugas & Materi + Sistem Informasi Cyber Security
+# Website Nadhiya — Portal Tugas & Materi dan Sistem Informasi Cyber Security
 
-Nadhiya Auliyah Ramadhani · NIM 240511160 · TI24D · Teknik Informatika, Fakultas Teknik, Universitas Muhammadiyah Cirebon · 2026
+<p align="center">
+  <strong>Proyek Analisis dan Desain Perangkat Lunak (ADPL)</strong><br>
+  Program Studi S1 Teknik Informatika<br>
+  Universitas Muhammadiyah Cirebon
+</p>
 
-Dua website yang saling terhubung, warna marun dan krem, HTML/CSS/JavaScript terpisah.
+<p align="center">
+  <img src="https://img.shields.io/badge/Project-ADPL-800000?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/Frontend-HTML%20%7C%20CSS%20%7C%20JavaScript-orange?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/Backend-Supabase-3ECF8E?style=for-the-badge" />
+</p>
 
-| Website | Folder | Fungsi |
-|---|---|---|
-| 1 | `website-tugas-materi/` | Portal Tugas & Materi untuk 8 mata kuliah |
-| 2 | `website-project-sistem/` | Aplikasi Sistem Informasi Cyber Security Toko Nadhiya Photocopy |
+## Tentang Proyek
 
-## Struktur direktori
+**Website Nadhiya** merupakan proyek pengembangan dua aplikasi berbasis web yang dikembangkan menggunakan HTML, CSS, dan JavaScript dengan Supabase sebagai backend dan database.
 
-```
-website-nadhiya-TI24D/
-├── website-tugas-materi/          Website 1 (index.html, css/, js/)
-├── website-project-sistem/        Website 2 (index.html, css/, js/config|core|auth|pages|app.js)
-├── supabase/
-│   ├── config.toml                konfigurasi function (verify_jwt = false untuk aksi login)
-│   └── functions/secure-auth/     Edge Function tepercaya (gerbang login, deteksi, buat pengguna)
-├── supabase-setup-v4.sql          SQL Website 1 (tugas, materi, storage, mata kuliah)
-├── supabase-cyber-security.sql    SQL Website 2 (skema keamanan, RLS, fungsi deteksi)
-├── docs/arsip-project-overview/   Halaman "overview" lama (diarsipkan, tidak dipakai)
-├── .env.example  .gitignore  README.md
-```
+Proyek ini terdiri dari dua sistem yang memiliki fungsi berbeda, yaitu portal pengelolaan tugas dan materi perkuliahan serta sistem informasi keamanan siber untuk Toko Nadhiya Photocopy.
 
-## Teknologi
-HTML, CSS, JavaScript murni · Supabase (PostgreSQL, Auth + MFA TOTP, Storage, Realtime, Edge Functions) · Supabase JS v2 via CDN · Git/GitHub · VS Code.
+### Identitas Pengembang
 
----
-
-## Website 1 — Portal Tugas & Materi
-
-Fitur yang berfungsi (diuji, lihat bagian Pengujian):
-- 8 mata kuliah sebagai folder. Tiap mata kuliah: **Materi**, **Tugas** (sub-folder **Tugas Mandiri** dan **Tugas Kelompok**), **UTS**, **UAS**. Data tiap folder tidak tercampur.
-- Waktu pengumpulan **LIVE**: jam berjalan tiap detik; tanggal dan jam dicatat tepat saat tombol Kirim ditekan. Kartu tugas menampilkan "x menit lalu" yang diperbarui otomatis.
-- Unggah file Word/PDF (maks. 10 MB) ke Supabase Storage dan/atau tautan Google Drive.
-- Tambah materi lewat form (PDF/Word/PPT atau tautan), daftar materi per mata kuliah.
-- Profil mahasiswa, status koneksi Supabase, pembaruan realtime.
-
-Dosen pengampu baru terisi untuk ADPL (Bu Dian Novianti, M.Kom.). Untuk mata kuliah lain, isi `dosen` di array `COURSES` pada `website-tugas-materi/js/script.js`.
-
-**Catatan keamanan Website 1:** tanpa login, siapa pun yang punya tautan dapat menambah tugas/materi dan mengunggah file (dibatasi 10 MB dan jenis dokumen). Cocok untuk tugas kuliah, bukan data rahasia.
-
-### Menjalankan SQL Website 1
-Supabase → SQL Editor → tempel `supabase-setup-v4.sql` → Run. Aman diulang. Data lama dipertahankan: tugas lama masuk ke ADPL › Tugas Mandiri, materi lama ke ADPL.
-
----
-
-## Website 2 — Sistem Informasi Cyber Security
-
-### Arsitektur dan keputusan teknis
-- **Satu sumber data: Supabase.** Website membaca data keamanan dari PostgreSQL Supabase.
-- **Autentikasi:** Supabase Auth (hash kata sandi oleh Supabase). **2FA TOTP** memakai fitur MFA bawaan Supabase (QR, 6 digit, rahasia disimpan Supabase). Tidak ada kriptografi buatan sendiri.
-- **Lapisan tepercaya:** Edge Function `secure-auth` + fungsi SQL `SECURITY DEFINER`. Deteksi brute force, pemblokiran IP, dan log audit dijalankan di server, bukan di JavaScript browser. `service_role` key hanya ada di environment function.
-- **Peran dipaksa oleh database:** RLS mensyaratkan sesi **AAL2** (sudah lolos 2FA), akun aktif, dan peran yang sesuai. Browser hanya boleh `SELECT`; semua perubahan lewat fungsi yang memeriksa peran dan menulis log audit.
-- **Log audit** dan riwayat login dilindungi trigger append-only (UPDATE/DELETE ditolak, bahkan untuk superuser biasa).
-
-### Halaman
-Login · Verifikasi 2FA · Dashboard · Monitoring Login · Deteksi Ancaman · IP Diblokir · Log Audit · Pengguna & Peran · Laporan · Pengaturan Keamanan · Profil & Logout.
-
-| Peran | Akses |
+| Informasi | Keterangan |
 |---|---|
-| Administrator | Semua: pengguna, peran, pengaturan, blokir manual, reset 2FA, laporan |
-| Pemilik | Dashboard, monitoring, ancaman, buka blokir IP, audit, laporan (lihat saja untuk pengguna/pengaturan) |
-| Pegawai | Hanya angka ringkasan di dashboard |
-
-### Aturan deteksi (nilai awal, dapat diubah Administrator di Pengaturan Keamanan)
-| Pengaturan | Nilai awal | Efek |
-|---|---|---|
-| Jendela waktu | 10 menit | Rentang penghitungan kegagalan |
-| Ambang mencurigakan | 3 kali | 3 gagal dari satu IP → peristiwa "login mencurigakan" (sedang) |
-| Ambang blokir otomatis | 5 kali | 5 gagal (password atau 2FA) dari satu IP → IP diblokir (tinggi) |
-| Durasi blokir awal | 30 menit | Menggandakan tiap pelanggaran ulang dalam 24 jam |
-| Durasi blokir maksimum | 1440 menit | Batas atas |
-| Ambang serangan terdistribusi | 3 IP | 1 akun digagalkan dari 3 IP berbeda → peristiwa (tinggi) |
-
-**Anti penguncian akun korban:** akun tidak pernah dikunci karena kegagalan orang lain. Penundaan progresif (mulai gagal ke-3: 2, 4, 8 … maks. 300 detik) hanya berlaku untuk pasangan **IP + akun** yang sama.
-
-### Pengaturan dari awal
-
-1. **Jalankan SQL.** Supabase → SQL Editor → tempel `supabase-setup-v4.sql` (Website 1, jika belum) lalu `supabase-cyber-security.sql` → Run.
-2. **Aktifkan MFA TOTP.** Authentication → Sign In / Providers (atau Multi-Factor) → pastikan TOTP *enabled*.
-3. **Deploy Edge Function** (butuh Supabase CLI: `npm i -g supabase`):
-   ```
-   supabase login
-   supabase link --project-ref zbhgperztnyrzvwwzqtz
-   supabase functions deploy secure-auth --no-verify-jwt
-   supabase secrets set ALLOWED_ORIGIN=https://domain-anda.com
-   ```
-   `SUPABASE_URL`, `SUPABASE_ANON_KEY`, `SUPABASE_SERVICE_ROLE_KEY` otomatis tersedia untuk function di Supabase hosted. **Jangan** menaruh service_role key di frontend atau GitHub.
-4. **Cek `website-project-sistem/js/config.js`** (URL project dan publishable key; `FUNCTION_URL` mengikuti project Anda).
-5. **Akun administrator pertama (tanpa kredensial di kode):**
-   - Supabase → Authentication → Users → *Add user* → isi email dan kata sandi kuat (≥12 karakter) → centang *Auto Confirm*.
-   - SQL Editor, jalankan sekali: `select public.bootstrap_admin('email@anda.com', 'namauser', 'Nama Lengkap');`
-   - Fungsi hanya berhasil bila belum ada administrator dan tidak bisa dipanggil dari browser.
-6. **Login pertama:** buka Website 2 → masuk → pindai QR dengan Google Authenticator/Authy → masukkan 6 digit. Pengguna lain ditambah Administrator lewat menu Pengguna & Peran.
-7. **Notifikasi realtime (opsional):** SQL sudah menambahkan `security_events` dan `blocked_ips` ke publikasi realtime. Jika realtime mati, bel notifikasi tetap menyegarkan tiap 60 detik dan lewat tombol muat ulang.
-
-### Menjalankan lokal
-Buka folder di VS Code → ekstensi *Live Server* → klik kanan `website-tugas-materi/index.html` → *Open with Live Server*. Isi `ALLOWED_ORIGIN` function dengan alamat Live Server (mis. `http://127.0.0.1:5500`) atau biarkan kosong (`*`) saat uji.
-
-### Deployment
-Hosting statis (Netlify, Vercel, GitHub Pages, Cloudflare Pages) harus HTTPS. Tambahkan header berikut di hosting (tidak bisa lewat `<meta>`): `Content-Security-Policy: frame-ancestors 'none'`, `X-Content-Type-Options: nosniff`, `Strict-Transport-Security`. `index.html` sudah memuat CSP lain lewat `<meta>`.
-
-### Clone dari GitHub
-```
-git clone https://github.com/<akun>/<repo>.git
-cd <repo>
-```
-`.gitignore` sudah mengecualikan `.env`. File `.env.example` hanya contoh. Publishable key di `config.js` memang publik; rahasia sebenarnya (service_role) tidak ada di repositori.
+| Nama | Nadhiya Auliyah Ramadhani |
+| NIM | 240511160 |
+| Kelas | TI24D |
+| Program Studi | S1 Teknik Informatika |
+| Fakultas | Fakultas Teknik |
+| Universitas | Universitas Muhammadiyah Cirebon |
+| Tahun | 2026 |
 
 ---
 
-## Daftar fitur dan statusnya
+## Daftar Aplikasi
 
-**Sudah berfungsi dan sudah diuji (lihat Pengujian)**
-- Portal 8 mata kuliah, folder Materi/Tugas/UTS/UAS, sub-folder Mandiri/Kelompok, jam LIVE, unggah, materi.
-- Login password via Edge Function, 2FA TOTP (alur dengan stub MFA), sesi, logout, idle timeout 15 menit.
-- Pencatatan semua percobaan, deteksi login mencurigakan, blokir otomatis, penundaan progresif, serangan terdistribusi.
-- IP diblokir: daftar, blokir manual (admin), buka blokir (admin/pemilik), riwayat, pencarian/filter.
-- Log audit append-only dengan filter tanggal, jenis, pengguna, tingkat; ekspor CSV.
-- Manajemen pengguna: tambah, ubah peran/status/nama, reset 2FA, cegah administrator terakhir hilang.
-- Laporan ringkasan, ekspor CSV, cetak/simpan PDF lewat dialog cetak peramban.
-- RLS dan pembatasan peran dari sisi database.
+| No. | Nama Aplikasi | Folder | Fungsi |
+|---|---|---|---|
+| 1 | Portal Tugas & Materi | `website-tugas-materi/` | Pengelolaan tugas dan materi untuk delapan mata kuliah. |
+| 2 | Sistem Informasi Cyber Security | `website-project-sistem/` | Monitoring keamanan siber untuk Toko Nadhiya Photocopy. |
 
-**Memerlukan konfigurasi dari Anda**
-- Menjalankan SQL, mengaktifkan TOTP, deploy Edge Function, membuat administrator pertama, mengisi `ALLOWED_ORIGIN`, header keamanan hosting.
-- Mengisi nama dosen untuk mata kuliah selain ADPL.
+## Teknologi yang Digunakan
 
-**Belum ada / batasan**
-- **Pemblokiran adalah lapisan aplikasi** (gerbang login). Bukan firewall jaringan; hosting statis tidak memberi akses firewall. Perubahan status di database tidak memblokir trafik jaringan.
-- **Brute force kode 2FA** pada endpoint MFA Supabase langsung tidak bisa dicegat oleh function kita. Perlindungannya: rate limit bawaan Supabase, kegagalan yang dilaporkan klien dihitung ke blokir, dan RLS tetap menolak data tanpa AAL2. Pelaporan kegagalan 2FA bergantung pada klien yang jujur.
-- Alamat IP berasal dari header `cf-connecting-ip`/`x-forwarded-for` yang diisi infrastruktur Supabase. Bila tidak tersedia, IP `unknown` dicatat tetapi tidak diblokir.
-- Pengguna yang dinonaktifkan kehilangan akses data seketika (RLS), tetapi token Auth-nya baru benar-benar kedaluwarsa sesuai pengaturan Supabase.
-- Notifikasi hanya di dalam dashboard. **Tidak ada** pengiriman WhatsApp/email.
-- PDF memakai dialog cetak peramban, bukan pustaka PDF.
-- **Integrasi aplikasi desktop:** proposal menyebut aplikasi desktop berbasis MySQL. **Belum ada sinkronisasi MySQL → Supabase.** Website membaca Supabase saja. Pilihan aman bila ingin terintegrasi: aplikasi desktop mengirim peristiwa ke backend tepercaya (Edge Function) atau Supabase dijadikan sumber data tunggal. Browser tidak boleh mengakses MySQL langsung.
-- Data kosong ditampilkan sebagai kosong; tidak ada data contoh.
+- **HTML5** — Struktur halaman website.
+- **CSS3** — Desain dan tampilan antarmuka.
+- **JavaScript** — Interaksi dan logika aplikasi.
+- **Supabase** — Database PostgreSQL, Authentication, MFA, Storage, Realtime, dan Edge Functions.
+- **Supabase JS v2** — Integrasi Supabase melalui CDN.
+- **Git & GitHub** — Pengelolaan versi dan penyimpanan source code.
+- **Visual Studio Code** — Lingkungan pengembangan.
 
 ---
 
-## Pengujian yang benar-benar dilakukan
+# 1. Portal Tugas & Materi
 
-Lingkungan uji: PostgreSQL 16 lokal dengan stub skema `auth`, browser Chromium (Playwright), Edge Function dijalankan nyata dengan GoTrue/PostgREST disimulasikan, klien Supabase digantikan jembatan yang menjalankan query ke PostgreSQL sebagai role `authenticated` dengan klaim JWT (jadi RLS ikut teruji).
+Portal Tugas & Materi merupakan aplikasi berbasis web untuk mengelola tugas, materi pembelajaran, dan dokumen perkuliahan dalam satu tempat.
 
-- **SQL (PostgreSQL 16):** dijalankan dua kali tanpa error (idempotent); skenario brute force (mencurigakan → penundaan → blokir otomatis → IP lain tidak terdampak), serangan terdistribusi tanpa mengunci akun, buka blokir, validasi rentang pengaturan, mencegah administrator terakhir hilang, trigger anti-ubah audit, fungsi internal tidak dapat dipanggil dari `authenticated`.
-- **Edge Function:** pesan galat generik (user tidak ada = salah sandi), penundaan 429, blokir 403 meski sandi benar, pelaporan MFA, penolakan `create-user` tanpa AAL2, JSON rusak, metode non-POST.
-- **UI Website 2 (64 pemeriksaan, 64 lulus):** alur login → 2FA → aplikasi untuk 3 peran; pendaftaran authenticator; semua halaman dimuat tanpa error; blokir/buka blokir IP; pengaturan; tambah pengguna; ekspor CSV; logout tercatat; RLS dari sisi browser (pegawai tidak bisa membaca audit/pengaturan atau memblokir IP; pemilik tidak bisa ubah pengaturan/peran); brute force lewat UI; tanpa overflow horizontal di lebar 390 px.
-- **UI Website 1:** 8 mata kuliah, navigasi folder, data tidak tercampur, jam LIVE berdetak, simpan ke folder aktif, jalur unggah `mk/kategori/…`, tanpa overflow di 390 px.
+### Fitur Utama
 
-**Belum diuji:** koneksi ke project Supabase asli (sandbox tanpa internet), layanan Auth/MFA Supabase sungguhan, deploy Edge Function di Deno, header IP asli Supabase, Realtime, pemuatan Google Fonts. Setelah deploy, lakukan satu kali uji manual: login salah 5 kali dari perangkat uji sendiri, lalu buka blokir dari akun administrator. Jangan menguji terhadap sistem pihak lain.
+- Pengelolaan delapan mata kuliah.
+- Pengelompokan folder Materi, Tugas, UTS, dan UAS.
+- Pembagian tugas menjadi Tugas Mandiri dan Tugas Kelompok.
+- Pengumpulan tugas melalui unggahan dokumen atau tautan Google Drive.
+- Unggah dokumen Word dan PDF dengan batas maksimal 10 MB.
+- Penambahan materi berupa PDF, Word, PPT, maupun tautan.
+- Pencatatan waktu pengumpulan secara langsung.
+- Tampilan waktu pengumpulan yang diperbarui otomatis.
+- Profil mahasiswa.
+- Status koneksi Supabase.
+- Pembaruan data secara realtime.
 
-## Pemulihan dan cadangan
-Aktifkan backup harian di Supabase (Project Settings → Database → Backups; plan berbayar untuk point-in-time). Log audit tidak bisa dihapus lewat aplikasi; arsipkan berkala lewat ekspor CSV.
-#   2 4 0 5 1 1 1 6 0 - N a d h i y a - p o r t a l - p r o j e c t - a d p l  
- 
+### Struktur Pengelolaan Mata Kuliah
+
+Setiap mata kuliah memiliki kategori pengelolaan tersendiri agar data tidak tercampur.
+
+```text
+Mata Kuliah
+├── Materi
+├── Tugas
+│   ├── Tugas Mandiri
+│   └── Tugas Kelompok
+├── UTS
+└── UAS
+```
+
+### Konfigurasi Dosen
+
+Data dosen pengampu dapat disesuaikan melalui array `COURSES` pada:
+
+`website-tugas-materi/js/script.js`
+
+Saat ini, informasi dosen yang telah diisi adalah ADPL (Bu Dian Novianti, M.Kom.).
+
+### Konfigurasi Database
+
+Jalankan file berikut melalui Supabase SQL Editor:
+
+`supabase-setup-v4.sql`
+
+Langkah:
+1. Buka dashboard Supabase.
+2. Pilih project yang digunakan.
+3. Masuk ke SQL Editor.
+4. Tempel isi file SQL.
+5. Klik Run.
+
+**Catatan keamanan:** Portal ini belum menggunakan autentikasi pengguna. Pengguna yang memiliki akses ke website dapat menambahkan tugas, materi, dan mengunggah file sesuai kebijakan Storage yang diterapkan.
+
+---
+
+# 2. Sistem Informasi Cyber Security
+
+Sistem Informasi Cyber Security merupakan aplikasi monitoring keamanan siber yang dirancang untuk membantu pengelolaan aktivitas login, deteksi ancaman, pemblokiran IP, dan pencatatan aktivitas keamanan pada Toko Nadhiya Photocopy.
+
+### Fitur Utama
+
+| Modul | Keterangan |
+|---|---|
+| Login | Autentikasi pengguna menggunakan Supabase Auth. |
+| Verifikasi 2FA | Verifikasi tambahan menggunakan TOTP. |
+| Dashboard | Ringkasan kondisi keamanan sistem. |
+| Monitoring Login | Pemantauan aktivitas login pengguna. |
+| Deteksi Ancaman | Identifikasi aktivitas login mencurigakan. |
+| IP Diblokir | Pengelolaan alamat IP yang diblokir. |
+| Log Audit | Pencatatan aktivitas sistem. |
+| Pengguna & Peran | Pengelolaan akun dan hak akses. |
+| Laporan | Ringkasan dan ekspor laporan keamanan. |
+| Pengaturan Keamanan | Pengaturan ambang deteksi keamanan. |
+| Profil | Informasi pengguna dan logout. |
+
+### Hak Akses Pengguna
+
+| Peran | Hak Akses |
+|---|---|
+| Administrator | Mengelola pengguna, peran, pengaturan, pemblokiran manual, reset 2FA, dan laporan. |
+| Pemilik | Melihat dashboard, monitoring, ancaman, audit, dan laporan serta membuka blokir IP. |
+| Pegawai | Melihat angka ringkasan pada dashboard. |
+
+### Arsitektur Keamanan
+
+Sistem menggunakan Supabase sebagai sumber data utama dengan beberapa lapisan keamanan:
+
+1. **Supabase Authentication** untuk autentikasi dan pengelolaan kata sandi.
+2. **Multi-Factor Authentication (MFA)** menggunakan TOTP.
+3. **Row Level Security (RLS)** untuk membatasi akses berdasarkan peran dan status autentikasi.
+4. **Edge Function** sebagai lapisan backend tepercaya untuk proses autentikasi dan deteksi keamanan.
+5. **SQL SECURITY DEFINER** untuk menjalankan fungsi database dengan pemeriksaan hak akses.
+6. **Audit Log** untuk mencatat aktivitas penting dan mencegah perubahan atau penghapusan catatan melalui aplikasi.
+
+Kunci `service_role` hanya digunakan pada lingkungan server dan tidak boleh ditempatkan di JavaScript frontend maupun repositori GitHub.
+
+### Parameter Deteksi Keamanan
+
+Nilai awal konfigurasi deteksi keamanan:
+
+| Parameter | Nilai Awal |
+|---|---:|
+| Jendela waktu | 10 menit |
+| Ambang login mencurigakan | 3 kali |
+| Ambang blokir otomatis | 5 kali |
+| Durasi blokir awal | 30 menit |
+| Durasi blokir maksimum | 1.440 menit |
+| Ambang serangan terdistribusi | 3 IP |
+
+Durasi pemblokiran dapat meningkat ketika terjadi pelanggaran berulang dalam periode 24 jam.
+
+Sistem juga menerapkan penundaan progresif berdasarkan kombinasi alamat IP dan akun untuk mengurangi risiko penyalahgunaan autentikasi.
+
+---
+
+## 3. Struktur Direktori
+
+```text
+website-nadhiya-TI24D/
+│
+├── website-tugas-materi/
+│   ├── index.html
+│   ├── css/
+│   └── js/
+│
+├── website-project-sistem/
+│   ├── index.html
+│   ├── css/
+│   └── js/
+│       ├── config.js
+│       ├── core/
+│       ├── auth/
+│       ├── pages/
+│       └── app.js
+│
+├── supabase/
+│   ├── config.toml
+│   └── functions/
+│       └── secure-auth/
+│
+├── docs/
+│   └── arsip-project-overview/
+│
+├── supabase-setup-v4.sql
+├── supabase-cyber-security.sql
+├── .env.example
+├── .gitignore
+└── README.md
+```
+
+---
+
+## 4. Instalasi dan Konfigurasi
+
+### Persyaratan
+
+Sebelum menjalankan aplikasi, pastikan perangkat telah memiliki:
+
+- Visual Studio Code.
+- Browser modern.
+- Ekstensi Live Server.
+- Akun Supabase.
+- Node.js dan Supabase CLI untuk deployment Edge Function.
+
+### Langkah 1 — Clone Repository
+
+```bash
+git clone https://github.com/nadhiyaauliyah45-hue/240511160-Nadhiya-portal-project-adpl.git
+
+cd 240511160-Nadhiya-portal-project-adpl
+```
+
+### Langkah 2 — Konfigurasi Supabase
+
+Jalankan kedua file SQL melalui Supabase SQL Editor:
+
+1. `supabase-setup-v4.sql`
+2. `supabase-cyber-security.sql`
+
+Pastikan keduanya berhasil dijalankan sebelum menggunakan fitur masing-masing aplikasi.
+
+### Langkah 3 — Aktifkan MFA TOTP
+
+Pada dashboard Supabase, buka pengaturan Authentication dan pastikan provider TOTP/MFA telah diaktifkan.
+
+### Langkah 4 — Deploy Edge Function
+
+Instal Supabase CLI:
+
+```bash
+npm install -g supabase
+```
+
+Login dan hubungkan project:
+
+```bash
+supabase login
+supabase link --project-ref YOUR_PROJECT_REF
+```
+
+Deploy function:
+
+```bash
+supabase functions deploy secure-auth --no-verify-jwt
+```
+
+Atur origin yang diizinkan:
+
+```bash
+supabase secrets set ALLOWED_ORIGIN=https://domain-anda.com
+```
+
+Variabel lingkungan `SUPABASE_URL`, `SUPABASE_ANON_KEY`, dan `SUPABASE_SERVICE_ROLE_KEY` disediakan pada lingkungan Supabase hosted.
+
+**Jangan pernah memasukkan `service_role` key ke dalam frontend atau repository publik.**
+
+### Langkah 5 — Konfigurasi Frontend
+
+Periksa konfigurasi Supabase pada:
+
+`website-project-sistem/js/config.js`
+
+Sesuaikan URL project, publishable key, dan URL Edge Function dengan project Supabase yang digunakan.
+
+### Langkah 6 — Membuat Administrator Pertama
+
+1. Buka Supabase Authentication → Users.
+2. Pilih Add User.
+3. Masukkan email dan kata sandi yang kuat.
+4. Aktifkan Auto Confirm jika diperlukan.
+5. Buka SQL Editor dan jalankan:
+
+```sql
+SELECT public.bootstrap_admin(
+  'email@anda.com',
+  'namauser',
+  'Nama Lengkap'
+);
+```
+
+Fungsi ini hanya dapat digunakan untuk inisialisasi administrator pertama sesuai aturan database.
+
+### Langkah 7 — Menjalankan Website Secara Lokal
+
+1. Buka folder project menggunakan VS Code.
+2. Instal ekstensi Live Server.
+3. Klik kanan `website-tugas-materi/index.html`.
+4. Pilih Open with Live Server.
+
+Untuk Website 2, buka `website-project-sistem/index.html` menggunakan Live Server.
+
+Sesuaikan `ALLOWED_ORIGIN` dengan alamat lokal yang digunakan.
+
+---
+
+## 5. Pengujian Sistem
+
+Pengujian dilakukan menggunakan PostgreSQL 16 lokal, Chromium, Playwright, serta simulasi layanan autentikasi dan API Supabase.
+
+### Hasil Pengujian Website 1
+
+- Pengelolaan delapan mata kuliah.
+- Navigasi folder materi dan tugas.
+- Pemisahan data berdasarkan mata kuliah dan kategori.
+- Pencatatan waktu pengumpulan secara langsung.
+- Pengunggahan dokumen sesuai jalur folder.
+- Tampilan responsif pada lebar layar 390 piksel.
+
+### Hasil Pengujian Website 2
+
+| Pengujian | Hasil |
+|---|---|
+| Pemeriksaan UI | 64 dari 64 pemeriksaan lulus |
+| Login dan 2FA | Lulus pada skenario pengujian |
+| Manajemen pengguna | Lulus |
+| Blokir dan buka blokir IP | Lulus |
+| Deteksi brute force | Lulus |
+| Log audit | Lulus |
+| Pembatasan RLS | Lulus |
+| Ekspor CSV | Lulus |
+| Responsivitas 390 px | Lulus |
+
+### Batasan Pengujian
+
+Pengujian di atas dilakukan pada lingkungan lokal dan simulasi. Koneksi ke project Supabase asli, layanan Auth/MFA sebenarnya, deployment Edge Function pada Deno, header IP dari infrastruktur Supabase, dan Realtime belum diuji langsung.
+
+Karena itu, hasil pengujian lokal tidak dapat dianggap sebagai bukti bahwa seluruh layanan produksi telah berjalan sempurna.
+
+---
+
+## 6. Batasan dan Pengembangan Selanjutnya
+
+Beberapa batasan sistem yang perlu diperhatikan:
+
+1. Pemblokiran IP merupakan mekanisme pada lapisan aplikasi, bukan firewall jaringan.
+2. Percobaan kode 2FA pada endpoint MFA Supabase secara langsung tidak sepenuhnya dapat dicegat oleh Edge Function.
+3. Pencatatan alamat IP bergantung pada header yang tersedia dari infrastruktur.
+4. Token autentikasi pengguna yang dinonaktifkan mengikuti pengaturan kedaluwarsa sesi Supabase.
+5. Notifikasi keamanan tersedia di dashboard dan belum terintegrasi dengan WhatsApp atau email.
+6. Laporan PDF menggunakan fitur cetak bawaan browser.
+7. Belum tersedia sinkronisasi antara aplikasi desktop berbasis MySQL dengan Supabase.
+8. Sistem belum menyediakan data contoh secara otomatis.
+
+---
+
+## 7. Keamanan Repository
+
+Beberapa hal yang perlu diperhatikan ketika mengembangkan atau mengunggah project:
+
+- File `.env` tidak boleh diunggah ke GitHub.
+- File `.env.example` hanya berisi contoh variabel dan placeholder.
+- Jangan menyimpan kata sandi pengguna di source code.
+- Jangan menempatkan `service_role` key atau secret key di frontend.
+- Publishable key dapat digunakan pada frontend dengan konfigurasi RLS dan kebijakan akses yang benar.
+- Pastikan kebijakan RLS dan Storage telah diperiksa sebelum aplikasi digunakan secara publik.
+
+---
+
+## 8. Backup dan Pemulihan Data
+
+Untuk menjaga keamanan data:
+
+- Aktifkan backup database melalui pengaturan Supabase.
+- Lakukan pemeriksaan berkala terhadap database.
+- Ekspor log audit secara berkala sebagai arsip.
+- Simpan salinan source code dan konfigurasi penting secara aman.
+
+Ketersediaan backup otomatis dan point-in-time recovery bergantung pada paket layanan Supabase yang digunakan.
+
+---
+
+## 9. Lisensi dan Informasi
+
+Proyek ini dikembangkan sebagai bagian dari kegiatan akademik mata kuliah **Analisis dan Desain Perangkat Lunak (ADPL)**.
+
+**Pengembang:** Nadhiya Auliyah Ramadhani  
+**NIM:** 240511160  
+**Kelas:** TI24D  
+**Universitas:** Universitas Muhammadiyah Cirebon  
+**Tahun Pengembangan:** 2026
+
+---
+
+<p align="center">
+  <strong>Website Nadhiya — Portal Tugas & Materi dan Sistem Informasi Cyber Security</strong><br>
+  <sub>Universitas Muhammadiyah Cirebon · Teknik Informatika · 2026</sub>
+</p>
