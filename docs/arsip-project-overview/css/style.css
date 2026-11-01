@@ -1,0 +1,365 @@
+/* =========================================================
+   1. VARIABEL WARNA & RESET (Coffee Theme)
+   ========================================================= */
+:root {
+  --maroon: #561C24;   /* Deep Maroon / Chocolate */
+  --rosewood: #6D2932; /* Warm Rosewood */
+  --taupe: #C7B7A3;    /* Soft Taupe / Beige */
+  --cream: #E8D8C4;    /* Light Cream */
+  --rose-light: #A5505B; /* rosewood versi lebih terang untuk tulisan tangan */
+  --paper: #F3E8D9;    /* Turunan cream untuk kartu terang */
+  --shadow: 0 10px 28px rgba(0, 0, 0, .25);
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Poppins', sans-serif;
+  color: var(--maroon);
+  line-height: 1.65;
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at 50% 115%, rgba(199, 183, 163, .45), transparent 55%),
+    linear-gradient(170deg, var(--maroon) 0%, var(--rosewood) 100%);
+  background-attachment: fixed;
+  animation: pageIn .7s ease both;
+}
+body.leaving { animation: pageOut .35s ease forwards; }
+
+/* =========================================================
+   2. ANIMASI GLOBAL
+   ========================================================= */
+@keyframes pageIn  { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+@keyframes pageOut { to   { opacity: 0; transform: translateY(-14px) scale(.99); } }
+@keyframes floaty  { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+@keyframes pulse   { 0%,100% { box-shadow: 0 0 0 0 rgba(232,216,196,.55); } 50% { box-shadow: 0 0 0 14px rgba(232,216,196,0); } }
+@keyframes dash    { to { stroke-dashoffset: -20; } }
+
+.reveal { opacity: 0; transform: translateY(28px); transition: opacity .8s ease, transform .8s ease; }
+.reveal.visible { opacity: 1; transform: none; }
+
+/* =========================================================
+   3. LAYOUT HALAMAN
+   ========================================================= */
+.page { max-width: 1120px; margin: 0 auto; padding: 22px 18px 120px; }
+
+/* =========================================================
+   4. HERO (kartu putih besar seperti poster)
+   ========================================================= */
+.hero { background: var(--paper); border-radius: 12px; padding: 24px 36px 26px; box-shadow: var(--shadow); margin-bottom: 14px; overflow: hidden; }
+.hero-nav { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; }
+.hero-nav a, .nav-name {
+  font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: .85rem; letter-spacing: 2px;
+  color: var(--maroon); text-decoration: none; position: relative;
+}
+.nav-name { font-weight: 800; color: var(--rosewood); }
+.hero-nav a::after { content: ""; position: absolute; left: 0; bottom: -4px; width: 0; height: 2px; background: var(--maroon); transition: width .3s; }
+.hero-nav a:hover::after { width: 100%; }
+.nav-cta { background: var(--maroon); color: var(--cream) !important; padding: 8px 16px; border-radius: 999px; }
+.nav-cta::after { display: none; }
+
+.hero-body { display: grid; grid-template-columns: 1.35fr .65fr; align-items: center; gap: 10px; margin: 12px 0 8px; }
+.hero-title { position: relative; z-index: 2; }
+.t1 { font-family: 'Anton', sans-serif; font-size: clamp(2.2rem, 6.2vw, 4.6rem); line-height: 1; color: var(--maroon); letter-spacing: 1px; }
+.t2 { font-family: 'Anton', sans-serif; font-size: clamp(3.4rem, 10.5vw, 8.4rem); line-height: .92; color: var(--maroon); letter-spacing: 1px; }
+/* Teks tulisan tangan di hero: font & warna baru (Dancing Script, rosewood terang + bayangan taupe) */
+.script { white-space: nowrap; font-family: 'Dancing Script', cursive; font-weight: 700; font-size: clamp(2.6rem, 7.6vw, 6rem); line-height: 1; color: var(--rose-light); text-shadow: 3px 3px 0 var(--taupe); margin-top: -.42em; margin-left: 40%; position: relative; }
+
+.hero-art { display: flex; justify-content: center; }
+.avatar { width: 100%; max-width: 330px; animation: floaty 5s ease-in-out infinite; }
+
+.hero-foot { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; margin-top: 6px; }
+.chips { display: flex; flex-wrap: wrap; gap: 10px; }
+.chip { background: var(--maroon); color: var(--cream); border-radius: 999px; padding: 6px 14px; font-size: .75rem; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; }
+.hero-url { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; letter-spacing: 3px; font-size: .9rem; color: var(--maroon); }
+
+/* =========================================================
+   5. LINEAR SHOWCASE FLOW (band bernomor, berurutan ke bawah)
+   ========================================================= */
+.flow { display: flex; flex-direction: column; }
+.card { border-radius: 10px; box-shadow: var(--shadow); transition: transform .3s ease, box-shadow .3s ease; }
+.card:hover { transform: translateY(-4px); box-shadow: 0 16px 34px rgba(0, 0, 0, .35); }
+.card.paper { background: var(--paper); color: var(--maroon); }
+.card.dark  { background: var(--maroon); color: var(--cream); border: 1px solid rgba(199, 183, 163, .3); }
+
+.band { display: grid; grid-template-columns: 170px 1fr; gap: 24px; padding: 28px; }
+.band-side { border-right: 2px dashed rgba(199, 183, 163, .5); padding-right: 16px; }
+.card.paper .band-side { border-right-color: rgba(109, 41, 50, .4); }
+.num { font-family: 'Anton', sans-serif; font-size: 5rem; line-height: 1; letter-spacing: 1px; }
+.card.paper .num { color: var(--rosewood); }
+.card.dark .num { color: var(--taupe); }
+.eyebrow { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: .72rem; letter-spacing: 2px; text-transform: uppercase; margin-top: 4px; }
+
+.band h2 { font-family: 'Anton', sans-serif; font-weight: 400; font-size: 2.3rem; letter-spacing: 1px; line-height: 1.05; text-transform: uppercase; }
+.card.dark h2 { color: var(--cream); }
+.script-sub { font-family: 'Sacramento', cursive; font-size: 1.8rem; line-height: 1; margin: 2px 0 16px; }
+.card.paper .script-sub { color: var(--rosewood); }
+.card.dark .script-sub { color: var(--taupe); }
+
+/* Penghubung antar band */
+.link { width: 3px; height: 26px; margin: 0 auto; background: repeating-linear-gradient(to bottom, var(--cream) 0 6px, transparent 6px 11px); opacity: .8; }
+
+/* =========================================================
+   6. LATAR BELAKANG
+   ========================================================= */
+.two { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.mini { background: rgba(232, 216, 196, .1); border: 1px solid rgba(199, 183, 163, .35); border-radius: 8px; padding: 18px; transition: transform .25s; }
+.mini:hover { transform: translateY(-4px); }
+.mini h3 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1rem; margin-bottom: 6px; color: var(--cream); }
+.mini p { font-size: .88rem; }
+
+/* =========================================================
+   7. FITUR UTAMA
+   ========================================================= */
+.features { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+.feature { background: var(--cream); border: 1.5px solid var(--taupe); border-radius: 8px; padding: 18px; transition: transform .3s, background .3s, color .3s; }
+.feature:hover { transform: translateY(-6px) rotate(-.6deg); background: var(--maroon); color: var(--cream); }
+.feature .ico { font-size: 1.7rem; display: block; margin-bottom: 6px; }
+.feature h3 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: .95rem; margin-bottom: 4px; }
+.feature p { font-size: .8rem; line-height: 1.5; }
+
+/* =========================================================
+   8. FLOWCHART (elemen CSS, di atas kartu maroon)
+   ========================================================= */
+.flowchart { display: flex; flex-direction: column; align-items: center; padding: 6px 0; }
+.fc { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: .85rem; text-align: center; padding: 11px 22px; background: var(--cream); color: var(--maroon); border: 2px solid var(--taupe); transition: transform .25s, background .25s; }
+.fc:hover { background: var(--taupe); transform: scale(1.05); }
+.fc.term { border-radius: 999px; background: var(--taupe); }
+.fc.proc { border-radius: 8px; }
+.fc.dec { border-radius: 8px; border-style: dashed; border-color: var(--maroon); background: var(--paper); }
+.arrow { width: 3px; height: 24px; background: var(--taupe); position: relative; }
+.arrow::after { content: ""; position: absolute; bottom: -2px; left: -5px; border: 6.5px solid transparent; border-top: 9px solid var(--taupe); border-bottom: 0; }
+.fc-row { display: flex; gap: 14px; flex-wrap: wrap; justify-content: center; }
+.fc-note { font-size: .72rem; font-weight: 600; color: var(--taupe); margin: -2px 0; }
+
+/* =========================================================
+   9. DFD (SVG di atas kartu terang)
+   ========================================================= */
+.dfd { width: 100%; height: auto; }
+.dfd text { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; fill: #561C24; }
+.dfd .flowline { stroke-dasharray: 6 6; animation: dash 1s linear infinite; }
+
+/* =========================================================
+   10. PENUTUP & TOMBOL
+   ========================================================= */
+.end .btn { margin-top: 4px; }
+.btn { display: inline-flex; text-decoration: none; background: var(--cream); color: var(--maroon); font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: .92rem; padding: 13px 26px; border-radius: 999px; transition: transform .25s, background .25s; }
+.btn:hover { background: var(--taupe); transform: translateY(-3px) scale(1.04); }
+.back-btn {
+  position: fixed; left: 22px; bottom: 22px; z-index: 50;
+  background: var(--cream); color: var(--maroon); text-decoration: none;
+  font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: .92rem;
+  padding: 15px 26px; border-radius: 999px; animation: pulse 2.4s infinite; transition: transform .25s, background .25s;
+}
+.back-btn:hover { background: var(--taupe); transform: scale(1.07); }
+footer { text-align: center; margin-top: 28px; font-size: .78rem; color: var(--cream); opacity: .8; }
+
+/* =========================================================
+   11. RESPONSIF
+   ========================================================= */
+@media (max-width: 900px) {
+  .hero { padding: 20px 22px; }
+  .hero-body { grid-template-columns: 1fr; }
+  .hero-art { order: -1; }
+  .avatar { max-width: 220px; }
+  .script { margin-left: 22%; }
+  .band { grid-template-columns: 1fr; gap: 12px; padding: 22px; }
+  .band-side { border-right: none; border-bottom: 2px dashed rgba(199, 183, 163, .5); padding: 0 0 10px; display: flex; align-items: baseline; gap: 14px; }
+  .num { font-size: 3rem; }
+  .features { grid-template-columns: repeat(2, 1fr); }
+  .two { grid-template-columns: 1fr; }
+}
+@media (max-width: 640px) {
+  .hero-nav a:not(.nav-cta) { display: none; }
+  .features { grid-template-columns: 1fr; }
+  .band h2 { font-size: 1.8rem; }
+  .hero-url { font-size: .72rem; letter-spacing: 2px; }
+  .back-btn { left: 12px; bottom: 12px; padding: 13px 20px; font-size: .82rem; }
+}
+
+/* =========================================================
+   12. KONTEN LAPORAN: teks, daftar, tabel, kartu
+   ========================================================= */
+.hero-sub { font-size: .82rem; line-height: 1.55; max-width: 540px; margin-top: 12px; color: var(--maroon); font-weight: 500; }
+.lead { font-size: .92rem; line-height: 1.7; margin-bottom: 16px; }
+.mini ul, .mini-paper ul { padding-left: 18px; font-size: .86rem; line-height: 1.55; }
+.mini li, .mini-paper li { margin-bottom: 4px; }
+.mini-paper { background: var(--cream); border: 1.5px solid var(--taupe); border-radius: 8px; padding: 18px; margin-bottom: 14px; transition: transform .25s; }
+.mini-paper:hover { transform: translateY(-4px); }
+.mini-paper h3 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1rem; margin-bottom: 8px; }
+.two .mini-paper { margin-bottom: 0; }
+.note-sm { font-size: .78rem; line-height: 1.55; margin-top: 14px; opacity: .85; }
+.note-sm.light, .card.dark .note-sm { color: var(--cream); }
+.note-sm code, .card code { font-size: .92em; }
+.sub-h { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1rem; font-weight: 800; letter-spacing: .5px; margin: 20px 0 10px; color: var(--rosewood); display: flex; flex-wrap: wrap; align-items: center; gap: 10px; }
+.sub-h.light, .card.dark .sub-h { color: var(--taupe); }
+.tag-ex { font-size: .66rem; font-weight: 700; letter-spacing: .5px; padding: 3px 10px; border-radius: 999px; border: 1px dashed var(--taupe); color: var(--cream); }
+
+.techs { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-top: 16px; font-size: .8rem; }
+.techs span { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; color: var(--rosewood); }
+.techs b { background: var(--maroon); color: var(--cream); border-radius: 999px; padding: 4px 12px; font-family: 'Plus Jakarta Sans', sans-serif; font-size: .74rem; }
+
+/* Tabel */
+.tbl-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+.tbl { width: 100%; border-collapse: collapse; font-size: .84rem; min-width: 520px; }
+.tbl th { text-align: left; font-family: 'Plus Jakarta Sans', sans-serif; font-size: .74rem; letter-spacing: 1px; text-transform: uppercase; padding: 10px 12px; background: var(--cream); color: var(--maroon); }
+.tbl td { padding: 10px 12px; border-bottom: 1px dashed rgba(199, 183, 163, .45); vertical-align: top; }
+.tbl td:first-child { font-weight: 600; white-space: nowrap; }
+.tbl tbody tr:hover td { background: rgba(232, 216, 196, .08); }
+.tbl .roles { text-align: center; vertical-align: middle; border-left: 1px dashed rgba(199, 183, 163, .45); }
+.tbl .roles b { display: block; margin: 4px auto; background: var(--taupe); color: var(--maroon); border-radius: 999px; padding: 4px 12px; width: max-content; font-family: 'Plus Jakarta Sans', sans-serif; font-size: .78rem; }
+.tbl .roles small { display: block; margin-top: 8px; font-size: .72rem; opacity: .8; }
+.tbl.light th { background: var(--maroon); color: var(--cream); }
+.tbl.light td { border-bottom-color: rgba(86, 28, 36, .2); }
+.tbl.light tbody tr:hover td { background: rgba(86, 28, 36, .06); }
+.ok-pill { display: inline-block; background: var(--taupe); color: var(--maroon); border-radius: 999px; padding: 2px 12px; font-size: .72rem; font-weight: 700; font-family: 'Plus Jakarta Sans', sans-serif; }
+
+/* =========================================================
+   13. FLOWCHART (varian kartu terang) + cabang Ya/Tidak
+   ========================================================= */
+.card.paper .fc { border-color: var(--maroon); background: var(--cream); color: var(--maroon); }
+.card.paper .fc:hover { background: var(--maroon); color: var(--cream); }
+.card.paper .fc.term { background: var(--maroon); color: var(--cream); }
+.card.paper .fc.dec { background: var(--taupe); border-style: dashed; }
+.card.paper .arrow { background: var(--rosewood); }
+.card.paper .arrow::after { border-top-color: var(--rosewood); }
+.fc.io { transform: skewX(-12deg); border-radius: 4px; }
+.fc.io:hover { transform: skewX(-12deg) scale(1.04); }
+.branch { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; margin: 8px 0 -2px; max-width: 640px; }
+.bchip { display: flex; align-items: center; gap: 8px; font-size: .76rem; font-weight: 600; line-height: 1.35; padding: 7px 12px 7px 8px; border-radius: 8px; background: var(--cream); border: 1.5px solid var(--maroon); color: var(--maroon); }
+.bchip .yn { flex: none; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: .62rem; letter-spacing: 1px; padding: 3px 8px; border-radius: 999px; background: var(--maroon); color: var(--cream); }
+.bchip.yes { background: #efe3d2; }
+.bchip.no { background: var(--paper); border-style: dashed; }
+.bchip.bad { background: var(--rosewood); color: var(--cream); border-color: var(--rosewood); }
+.bchip.bad .yn { background: var(--cream); color: var(--rosewood); }
+
+/* =========================================================
+   14. PANEL DIAGRAM (SVG di atas latar terang)
+   ========================================================= */
+.diagram { background: var(--paper); border-radius: 8px; padding: 14px; color: var(--maroon); }
+.ent { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 14px; }
+.ent-card { background: var(--cream); border: 1.5px solid var(--taupe); border-radius: 8px; padding: 14px; transition: transform .25s; }
+.ent-card:hover { transform: translateY(-4px); }
+.ent-card b { display: block; font-family: 'Plus Jakarta Sans', sans-serif; font-size: .95rem; }
+.ent-card small { display: block; font-weight: 600; color: var(--rosewood); margin-bottom: 6px; }
+.ent-card p { font-size: .8rem; line-height: 1.5; }
+.ent-card.danger { background: var(--rosewood); border-color: var(--rosewood); color: var(--cream); }
+.ent-card.danger small { color: var(--taupe); }
+.procs { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-top: 14px; }
+.proc-card { background: rgba(232, 216, 196, .1); border: 1px solid rgba(199, 183, 163, .4); border-radius: 8px; padding: 12px; transition: transform .25s; }
+.proc-card:hover { transform: translateY(-4px); }
+.proc-card b { display: block; font-family: 'Plus Jakarta Sans', sans-serif; font-size: .82rem; margin-bottom: 4px; color: var(--cream); }
+.proc-card p { font-size: .76rem; line-height: 1.45; color: var(--taupe); }
+
+/* DFD Level 1 */
+.l1 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+.l1-card { background: var(--cream); border: 1.5px solid var(--taupe); border-radius: 8px; padding: 14px; }
+.l1-card > b { display: block; font-family: 'Plus Jakarta Sans', sans-serif; font-size: .9rem; margin-bottom: 10px; }
+.chain { list-style: none; counter-reset: sp; }
+.chain li { position: relative; font-size: .82rem; font-weight: 600; background: var(--paper); border: 1.5px solid var(--maroon); border-radius: 8px; padding: 7px 12px; margin-bottom: 14px; transition: background .25s, color .25s; }
+.chain li:hover { background: var(--maroon); color: var(--cream); }
+.chain li:not(:last-child)::after { content: "▼"; position: absolute; left: 50%; bottom: -15px; transform: translateX(-50%); font-size: .6rem; color: var(--rosewood); }
+.chain small { display: block; font-weight: 400; font-size: .72rem; opacity: .8; }
+
+/* =========================================================
+   15. DATABASE & ERD
+   ========================================================= */
+.dbs { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+.dbt { background: rgba(232, 216, 196, .08); border: 1px solid rgba(199, 183, 163, .4); border-radius: 8px; overflow: hidden; transition: transform .25s; }
+.dbt:hover { transform: translateY(-4px); }
+.dbt-h { background: var(--taupe); color: var(--maroon); font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: .92rem; padding: 8px 14px; letter-spacing: .5px; }
+.dbr { display: grid; grid-template-columns: 1.15fr 1fr 1.3fr; gap: 8px; padding: 7px 14px; font-size: .74rem; border-bottom: 1px dashed rgba(199, 183, 163, .3); align-items: baseline; }
+.dbr code { font-weight: 700; color: var(--cream); word-break: break-word; }
+.dbr span { color: var(--taupe); }
+.dbr em { font-style: normal; opacity: .85; }
+.erd { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; }
+.erd-box { background: var(--cream); color: var(--maroon); border-radius: 8px; padding: 8px 16px; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: .84rem; }
+.erd-rel { color: var(--taupe); font-weight: 700; font-size: .8rem; letter-spacing: 1px; }
+.erd-gap { flex-basis: 24px; }
+
+/* =========================================================
+   16. MOCKUP ANTARMUKA
+   ========================================================= */
+.ui { display: grid; grid-template-columns: repeat(6, 1fr); gap: 14px; }
+.win { background: #f7f2ea; border: 2px solid var(--maroon); border-radius: 6px; overflow: hidden; box-shadow: 0 6px 16px rgba(86, 28, 36, .18); transition: transform .25s; }
+.win:hover { transform: translateY(-5px); }
+.win-bar { background: var(--taupe); color: var(--maroon); font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: .72rem; padding: 6px 10px; border-bottom: 2px solid var(--maroon); }
+.win-body { padding: 14px; display: flex; flex-direction: column; gap: 10px; font-size: .76rem; }
+.win-body > b { font-family: 'Plus Jakarta Sans', sans-serif; font-size: .88rem; text-align: center; }
+.win-body small { font-size: .68rem; opacity: .8; }
+.w-login { grid-column: span 3; } .w-otp { grid-column: span 3; }
+.w-dash { grid-column: span 6; } .w-ip { grid-column: span 3; } .w-log { grid-column: span 3; }
+.fld { display: flex; align-items: center; gap: 10px; }
+.fld label { flex: none; width: 70px; font-weight: 600; }
+.fld.inline { flex-wrap: wrap; }
+.fld.inline label { width: auto; }
+.inp { flex: 1; min-height: 24px; background: #fff; border: 1.5px solid var(--taupe); padding: 3px 8px; font-size: .72rem; }
+.inp.otp { flex: none; align-self: center; width: 60%; text-align: center; letter-spacing: 3px; }
+.inp.sm { flex: none; width: 96px; opacity: .8; }
+.inp.sm.wide { width: 150px; }
+.wbtns { display: flex; gap: 8px; flex-wrap: wrap; }
+.wbtn { display: inline-block; text-align: center; padding: 5px 14px; border-radius: 4px; border: 1.5px solid var(--maroon); font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: .72rem; }
+.wbtn.ok { background: var(--taupe); } .wbtn.bad { background: var(--rosewood); color: var(--cream); } .wbtn.info { background: var(--cream); }
+.w-login .wbtn, .w-otp .wbtn { align-self: flex-start; }
+.tiles { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+.tile { border: 1.5px solid var(--maroon); border-radius: 6px; padding: 10px; text-align: center; }
+.tile small { display: block; font-weight: 600; opacity: 1; }
+.tile b { font-family: 'Anton', sans-serif; font-weight: 400; font-size: 1.9rem; line-height: 1.2; }
+.tile.ti1 { background: var(--cream); } .tile.ti2 { background: var(--taupe); } .tile.ti3 { background: var(--rosewood); color: var(--cream); } .tile.ti4 { background: var(--maroon); color: var(--cream); }
+.status { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.dot { width: 14px; height: 14px; border-radius: 50%; display: inline-block; border: 1.5px solid var(--maroon); }
+.dot.g { background: #6aa84f; } .dot.y { background: #f2c94c; } .dot.r { background: #b3202a; }
+.mini-h { font-family: 'Plus Jakarta Sans', sans-serif; font-size: .8rem; }
+.mtbl { width: 100%; border-collapse: collapse; font-size: .68rem; background: #fff; min-width: 320px; }
+.mtbl th { background: #ddd3c4; text-align: left; padding: 4px 8px; border: 1px solid var(--taupe); }
+.mtbl td { padding: 4px 8px; border: 1px solid var(--taupe); }
+
+/* =========================================================
+   17. BAR WAKTU BLOKIR
+   ========================================================= */
+.bars { background: rgba(232, 216, 196, .08); border: 1px solid rgba(199, 183, 163, .4); border-radius: 8px; padding: 16px; }
+.bar-row { display: grid; grid-template-columns: 100px 1fr 70px; gap: 12px; align-items: center; margin-bottom: 10px; font-size: .8rem; }
+.bar-track { height: 14px; background: rgba(232, 216, 196, .18); border-radius: 999px; overflow: hidden; }
+.bar-fill { height: 100%; width: 0; background: linear-gradient(90deg, var(--taupe), var(--cream)); border-radius: 999px; transition: width 1.1s ease .3s; }
+.reveal.visible .bar-fill { width: var(--w); }
+.bar-row.avg { font-weight: 800; }
+.bar-row.avg .bar-fill { background: #b9e4c4; }
+.bar-row b { text-align: right; font-family: 'Plus Jakarta Sans', sans-serif; }
+.bar-axis { display: flex; justify-content: space-between; font-size: .68rem; color: var(--taupe); padding-left: 112px; padding-right: 82px; }
+
+/* =========================================================
+   18. RESPONSIF TAMBAHAN
+   ========================================================= */
+@media (max-width: 900px) {
+  .ent, .procs { grid-template-columns: 1fr 1fr; }
+  .l1, .dbs { grid-template-columns: 1fr; }
+  .ui { grid-template-columns: 1fr; }
+  .w-login, .w-otp, .w-dash, .w-ip, .w-log { grid-column: auto; }
+}
+@media (max-width: 640px) {
+  .ent, .procs { grid-template-columns: 1fr; }
+  .tiles { grid-template-columns: repeat(2, 1fr); }
+  .bar-row { grid-template-columns: 82px 1fr 60px; gap: 8px; }
+  .bar-axis { padding-left: 90px; padding-right: 68px; }
+  .dbr { grid-template-columns: 1fr 1fr; }
+  .dbr em { grid-column: 1 / -1; }
+  .hero-nav a:not(.nav-cta) { display: none; }
+}
+
+/* Perbaikan kecil */
+.win-body > b.mini-h { text-align: left; }
+.tile b { display: block; }
+.hero .t1 { font-size: clamp(2rem, 5.6vw, 4.2rem); white-space: nowrap; }
+
+/* Mencegah konten lebar mendorong halaman melebar di HP */
+.band { grid-template-columns: 170px minmax(0, 1fr); }
+.band-main { min-width: 0; }
+@media (max-width: 900px) { .band { grid-template-columns: minmax(0, 1fr); } }
+@media (max-width: 900px) {
+  .l1, .dbs, .ui { grid-template-columns: minmax(0, 1fr); }
+}
+.dbr, .dbr * { overflow-wrap: anywhere; }
+.dbt, .l1-card, .win { min-width: 0; }
+.dbr { grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr) minmax(0, 1.3fr); }
+@media (max-width: 640px) { .dbr { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); } }
+.band h2 { overflow-wrap: anywhere; }
+@media (max-width: 640px) { .band h2 { font-size: 1.6rem; } }

@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portal Tugas & Materi | Nadhiya Auliyah Ramadhani</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Sacramento&family=Dancing+Script:wght@600;700&family=Plus+Jakarta+Sans:wght@600;700;800&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+<div class="page">
+
+  <!-- ================= HERO ================= -->
+  <header class="hero reveal">
+    <nav class="hero-nav">
+      <span class="nav-name">NADHIYA AULIYAH</span>
+      <a href="#folders">MATA KULIAH</a>
+      <a href="#kumpul">KUMPUL TUGAS</a>
+      <a href="#tugas">DAFTAR TUGAS</a>
+      <a href="#materi">MATERI</a>
+      <a href="../website-project-sistem/index.html" data-nav class="nav-cta">PROJECT ➜</a>
+    </nav>
+
+    <div class="hero-body">
+      <div class="hero-title">
+        <div class="t1">PORTAL TUGAS</div>
+        <div class="t2">&amp; MATERI</div>
+        <div class="script">8 Mata Kuliah</div>
+      </div>
+
+      <!-- Ilustrasi SVG karakter perempuan berhijab -->
+      <div class="hero-art">
+        <svg class="avatar" viewBox="0 0 300 340" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Ilustrasi perempuan berhijab">
+          <circle cx="150" cy="170" r="140" fill="#C7B7A3"/>
+          <circle cx="150" cy="170" r="140" fill="none" stroke="#6D2932" stroke-width="3" stroke-dasharray="6 10"/>
+          <path d="M40 340 C40 250 90 225 150 225 C210 225 260 250 260 340 Z" fill="#6D2932"/>
+          <path d="M70 330 C60 270 85 215 150 205 C215 215 240 270 230 330 Z" fill="#561C24"/>
+          <path d="M110 330 C105 280 120 245 150 238 C180 245 195 280 190 330 Z" fill="#E8D8C4"/>
+          <rect x="136" y="190" width="28" height="30" rx="10" fill="#E8D8C4" stroke="#561C24" stroke-width="2"/>
+          <ellipse cx="150" cy="130" rx="78" ry="88" fill="#561C24"/>
+          <ellipse cx="150" cy="140" rx="60" ry="70" fill="#6D2932"/>
+          <ellipse cx="150" cy="140" rx="46" ry="54" fill="#E8D8C4" stroke="#561C24" stroke-width="2"/>
+          <path d="M104 118 C115 84 185 84 196 118 C180 106 120 106 104 118 Z" fill="#561C24"/>
+          <ellipse cx="132" cy="140" rx="5" ry="7" fill="#561C24"/>
+          <ellipse cx="168" cy="140" rx="5" ry="7" fill="#561C24"/>
+          <circle cx="134" cy="137" r="1.8" fill="#E8D8C4"/>
+          <circle cx="170" cy="137" r="1.8" fill="#E8D8C4"/>
+          <path d="M123 127 Q132 121 141 127" stroke="#561C24" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+          <path d="M159 127 Q168 121 177 127" stroke="#561C24" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+          <circle cx="120" cy="160" r="8" fill="#C7B7A3" opacity=".7"/>
+          <circle cx="180" cy="160" r="8" fill="#C7B7A3" opacity=".7"/>
+          <path d="M150 148 Q147 156 152 157" stroke="#6D2932" stroke-width="2" fill="none" stroke-linecap="round"/>
+          <path d="M136 170 Q150 182 164 170" stroke="#561C24" stroke-width="3" fill="none" stroke-linecap="round"/>
+          <circle cx="150" cy="215" r="7" fill="#E8D8C4" stroke="#561C24" stroke-width="2"/>
+          <g transform="translate(205 268)">
+            <path class="steam-1" d="M14 -8 Q8 -18 14 -26" stroke="#561C24" stroke-width="3" fill="none" stroke-linecap="round"/>
+            <path class="steam-2" d="M28 -8 Q22 -18 28 -26" stroke="#561C24" stroke-width="3" fill="none" stroke-linecap="round"/>
+            <path d="M0 0 H42 V22 C42 36 32 44 21 44 C10 44 0 36 0 22 Z" fill="#E8D8C4" stroke="#561C24" stroke-width="3"/>
+            <path d="M42 8 C58 8 58 30 42 30" fill="none" stroke="#561C24" stroke-width="3"/>
+            <rect x="3" y="2" width="36" height="6" fill="#561C24"/>
+          </g>
+          <g transform="translate(50 275)">
+            <rect width="46" height="34" rx="4" fill="#E8D8C4" stroke="#561C24" stroke-width="3"/>
+            <line x1="23" y1="0" x2="23" y2="34" stroke="#561C24" stroke-width="3"/>
+          </g>
+        </svg>
+      </div>
+    </div>
+
+    <div class="hero-foot">
+      <div class="icons">
+        <span class="ic">📚</span><span class="ic">📝</span><span class="ic">☕</span>
+      </div>
+      <div class="hero-url">NIM 240511160 · TI24D</div>
+    </div>
+  </header>
+
+  <!-- ================= MOSAIK KARTU ================= -->
+  <main class="mosaic">
+
+    <!-- Folder mata kuliah: 8 mata kuliah, tiap mata kuliah punya Materi / Tugas / UTS / UAS -->
+    <section class="card paper c-folders reveal" id="folders">
+      <h2>Folder Mata Kuliah</h2>
+      <div class="script-sub">pilih mata kuliah, lalu pilih foldernya</div>
+
+      <div class="course-grid" id="courseGrid" role="tablist" aria-label="Daftar mata kuliah"></div>
+
+      <div class="crumb" id="crumb" aria-live="polite"></div>
+      <div class="tabs" id="folderTabs" role="tablist" aria-label="Folder mata kuliah"></div>
+      <div class="tabs sub" id="subTabs" role="tablist" aria-label="Jenis tugas" hidden></div>
+    </section>
+
+    <!-- Profil -->
+    <section class="card dark c-profil reveal" id="profil">
+      <h2>Profil Mahasiswa</h2>
+      <div class="script-sub">tentang saya</div>
+      <div class="kv"><span>Nama</span><strong>Nadhiya Auliyah Ramadhani</strong></div>
+      <div class="kv"><span>NIM / Kelas</span><strong>240511160 · TI24D</strong></div>
+      <div class="kv"><span>Program Studi</span><strong>Teknik Informatika, Fakultas Teknik</strong></div>
+      <div class="kv"><span>Universitas</span><strong>Universitas Muhammadiyah Cirebon · 2026</strong></div>
+      <div class="kv"><span>Mata Kuliah</span><strong id="profMk">-</strong></div>
+      <div class="kv"><span>Dosen Pengampu</span><strong id="profDosen">-</strong></div>
+    </section>
+
+    <!-- Statistik -->
+    <section class="card dark c-stat reveal">
+      <h2 id="statTitle">Terkumpul</h2>
+      <div class="script-sub" id="statSub">total tugas di database</div>
+      <div class="big-num" id="statPercent">0</div>
+      <p class="hint" id="statText">Memuat data...</p>
+      <span class="conn wait" id="connStatus">● Menghubungkan...</span>
+    </section>
+
+    <!-- Form input tugas (disimpan ke Supabase) -->
+    <section class="card paper c-form reveal" id="kumpul">
+      <h2 id="formTitle">Kumpulkan Tugas</h2>
+      <div class="script-sub">tersimpan di database Supabase</div>
+      <div class="target" id="formTarget"></div>
+      <form id="submitForm" novalidate>
+        <label for="namaTugas">Nama Tugas</label>
+        <input type="text" id="namaTugas" placeholder="Contoh: Tugas 4 - Class Diagram &amp; ERD" maxlength="120" autocomplete="off" required>
+
+        <!-- Waktu pengumpulan LIVE: berjalan tiap detik, dicatat tepat saat tombol kirim ditekan -->
+        <div class="live-box" aria-live="off">
+          <span class="live-pill"><i></i>LIVE</span>
+          <div class="live-time" id="liveTime">--:--:--</div>
+          <div class="live-date" id="liveDate">&nbsp;</div>
+          <small class="hint" id="liveTz">Waktu pengumpulan dicatat otomatis saat tombol Kirim ditekan.</small>
+        </div>
+        <input type="hidden" id="tanggalTugas">
+        <input type="hidden" id="jamTugas">
+
+        <label for="detailTugas">Detail / Deskripsi Tugas</label>
+        <textarea id="detailTugas" rows="3" maxlength="500" placeholder="Tuliskan catatan singkat tentang tugas ini..."></textarea>
+
+        <label for="fileTugas">File Tugas (Word / PDF)</label>
+        <input type="file" id="fileTugas" accept=".pdf,.doc,.docx,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document">
+        <p class="hint">Format PDF, DOC, atau DOCX, maksimal 10 MB. File disimpan di Supabase Storage.</p>
+
+        <label for="driveLink">Link Google Drive <span class="opt">(opsional jika sudah unggah file)</span></label>
+        <input type="url" id="driveLink" placeholder="https://drive.google.com/file/d/..." autocomplete="off">
+        <p class="hint">Isi file atau link (minimal salah satu). Akses link diatur ke “Siapa saja yang memiliki link”.</p>
+
+        <div style="margin-top:16px">
+          <button type="submit" class="btn" id="btnSubmit">Kirim Tugas ➤</button>
+        </div>
+        <div class="msg" id="formMsg" role="status" aria-live="polite"></div>
+      </form>
+    </section>
+
+    <!-- Daftar tugas dari Supabase -->
+    <section class="card paper c-submit reveal" id="tugas">
+      <div class="card-top">
+        <div>
+          <h2 id="listTitle">Daftar Tugas</h2>
+          <div class="script-sub" id="listSub">riwayat dari Supabase</div>
+        </div>
+        <button type="button" class="btn small ghost" id="btnRefresh">↻ Muat Ulang</button>
+      </div>
+      <div class="tugas-grid" id="tugasList">
+        <p class="empty">Memuat data dari Supabase...</p>
+      </div>
+    </section>
+
+    <!-- Materi kuliah -->
+    <section class="card dark c-materi reveal" id="materi">
+      <div class="card-top">
+        <div>
+          <h2>Materi Kuliah</h2>
+          <div class="script-sub" id="materiSub">pilih mata kuliah</div>
+        </div>
+        <button type="button" class="btn small light" id="btnToggleMateri" aria-expanded="false" aria-controls="panelMateri">＋ Tambah Materi</button>
+      </div>
+
+      <!-- Form tambah materi (disimpan ke tabel "materi" di Supabase) -->
+      <div class="materi-panel" id="panelMateri" hidden>
+        <form id="formMateri" novalidate>
+          <div class="row2">
+            <div>
+              <label for="materiBab">Bab / Pertemuan</label>
+              <input type="text" id="materiBab" placeholder="Contoh: Bab 1" maxlength="30" autocomplete="off" required>
+            </div>
+            <div>
+              <label for="materiUrutan">Urutan tampil <span class="opt">(opsional)</span></label>
+              <input type="number" id="materiUrutan" placeholder="1" min="0" max="999" step="1">
+            </div>
+          </div>
+
+          <label for="materiJudul">Judul Materi</label>
+          <input type="text" id="materiJudul" placeholder="Contoh: Pengantar Rekayasa Perangkat Lunak" maxlength="150" autocomplete="off" required>
+
+          <label for="materiDeskripsi">Deskripsi Singkat <span class="opt">(opsional)</span></label>
+          <textarea id="materiDeskripsi" rows="2" maxlength="300" placeholder="Ringkasan isi materi..."></textarea>
+
+          <label for="materiFile">File Materi <span class="opt">(PDF / Word / PPT, maks. 10 MB)</span></label>
+          <input type="file" id="materiFile" accept=".pdf,.doc,.docx,.ppt,.pptx">
+
+          <label for="materiLink">Link Materi <span class="opt">(opsional, Drive / YouTube / lainnya)</span></label>
+          <input type="url" id="materiLink" placeholder="https://..." autocomplete="off">
+
+          <div style="margin-top:14px">
+            <button type="submit" class="btn light" id="btnMateri">Simpan Materi ➤</button>
+          </div>
+          <div class="msg" id="materiMsg" role="status" aria-live="polite"></div>
+        </form>
+      </div>
+
+      <div class="chapters" id="materiList">
+        <p class="empty">Memuat materi dari database...</p>
+      </div>
+    </section>
+
+    <!-- Langkah -->
+    <section class="card paper c-steps reveal">
+      <h2>Cara Mengumpulkan</h2>
+      <div class="script-sub">empat langkah mudah</div>
+      <div class="steps">
+        <div class="step"><div class="circle">📝</div><b>Isi Data</b><small>Nama, tanggal, jam, dan detail tugas</small></div>
+        <div class="step"><div class="circle">🔗</div><b>Unggah / Link</b><small>File Word/PDF dan atau link Google Drive</small></div>
+        <div class="step"><div class="circle">➤</div><b>Kirim</b><small>Klik tombol Kirim Tugas</small></div>
+        <div class="step"><div class="circle">✔</div><b>Cek Daftar</b><small>Tugas muncul sebagai kartu</small></div>
+      </div>
+    </section>
+
+    <!-- CTA ke Website 2 -->
+    <section class="card dark c-cta reveal">
+      <div>
+        <div class="cta-t1">CYBER SECURITY</div>
+        <div class="cta-script">Dashboard</div>
+        <p>Buka aplikasi Sistem Informasi Cyber Security Toko Nadhiya Photocopy.</p>
+      </div>
+      <a href="../website-project-sistem/index.html" class="btn light" data-nav>Buka Website 2 ➜</a>
+    </section>
+
+  </main>
+
+  <footer>© 2026 Nadhiya Auliyah Ramadhani · NIM 240511160 · TI24D · Website 1 dari 2</footer>
+</div>
+
+<!-- Tombol melayang menuju Website 2 -->
+<a href="../website-project-sistem/index.html" class="float-nav" data-nav>Buka Cyber Security ➜</a>
+
+<!-- Dialog Edit (dipakai untuk tugas dan materi) -->
+<dialog id="dlgEdit" class="dlg" aria-labelledby="dlgTitle">
+  <form id="formEdit" method="dialog" novalidate>
+    <h3 id="dlgTitle">Edit</h3>
+    <div id="dlgFields"></div>
+    <div class="msg" id="dlgMsg" role="status" aria-live="polite"></div>
+    <div class="dlg-actions">
+      <button type="button" class="btn small ghost" id="dlgCancel">Batal</button>
+      <button type="submit" class="btn small" id="dlgSave">Simpan Perubahan</button>
+    </div>
+  </form>
+</dialog>
+
+<!-- Library Supabase (CDN) -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="js/script.js"></script>
+</body>
+</html>

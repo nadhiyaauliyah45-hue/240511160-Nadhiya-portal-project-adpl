@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Project System Overview | Cyber Security Toko Nadhiya Photocopy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Sacramento&family=Dancing+Script:wght@600;700&family=Plus+Jakarta+Sans:wght@600;700;800&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+<div class="page">
+
+  <!-- ================= HERO ================= -->
+  <header class="hero reveal">
+    <nav class="hero-nav">
+      <span class="nav-name">NADHIYA AULIYAH</span>
+      <a href="#latar">LATAR BELAKANG</a>
+      <a href="#fitur">FITUR</a>
+      <a href="#alur">ALUR &amp; DIAGRAM</a>
+      <a href="#database">DATABASE</a>
+      <a href="#hasil">HASIL</a>
+      <a href="../website-tugas-materi/index.html" data-nav class="nav-cta">⟵ PORTAL</a>
+    </nav>
+
+    <div class="hero-body">
+      <div class="hero-title">
+        <div class="t1">CYBER SECURITY</div>
+        <div class="t2">NADHIYA</div>
+        <div class="script">Photocopy</div>
+        <p class="hero-sub">Sistem Informasi Cyber Security Sederhana untuk Monitoring dan Pertahanan Ancaman Digital pada Toko Nadhiya Photocopy.</p>
+      </div>
+
+      <div class="hero-art">
+        <svg class="avatar" viewBox="0 0 300 340" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Ilustrasi perempuan berhijab dengan perisai keamanan">
+          <circle cx="150" cy="170" r="140" fill="#C7B7A3"/>
+          <circle cx="150" cy="170" r="140" fill="none" stroke="#6D2932" stroke-width="3" stroke-dasharray="6 10"/>
+          <path d="M40 340 C40 250 90 225 150 225 C210 225 260 250 260 340 Z" fill="#6D2932"/>
+          <path d="M70 330 C60 270 85 215 150 205 C215 215 240 270 230 330 Z" fill="#561C24"/>
+          <path d="M110 330 C105 280 120 245 150 238 C180 245 195 280 190 330 Z" fill="#E8D8C4"/>
+          <rect x="136" y="190" width="28" height="30" rx="10" fill="#E8D8C4" stroke="#561C24" stroke-width="2"/>
+          <ellipse cx="150" cy="130" rx="78" ry="88" fill="#561C24"/>
+          <ellipse cx="150" cy="140" rx="60" ry="70" fill="#6D2932"/>
+          <ellipse cx="150" cy="140" rx="46" ry="54" fill="#E8D8C4" stroke="#561C24" stroke-width="2"/>
+          <path d="M104 118 C115 84 185 84 196 118 C180 106 120 106 104 118 Z" fill="#561C24"/>
+          <ellipse cx="132" cy="140" rx="5" ry="7" fill="#561C24"/>
+          <ellipse cx="168" cy="140" rx="5" ry="7" fill="#561C24"/>
+          <circle cx="134" cy="137" r="1.8" fill="#E8D8C4"/>
+          <circle cx="170" cy="137" r="1.8" fill="#E8D8C4"/>
+          <path d="M123 127 Q132 121 141 127" stroke="#561C24" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+          <path d="M159 127 Q168 121 177 127" stroke="#561C24" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+          <circle cx="120" cy="160" r="8" fill="#C7B7A3" opacity=".7"/>
+          <circle cx="180" cy="160" r="8" fill="#C7B7A3" opacity=".7"/>
+          <path d="M150 148 Q147 156 152 157" stroke="#6D2932" stroke-width="2" fill="none" stroke-linecap="round"/>
+          <path d="M136 170 Q150 182 164 170" stroke="#561C24" stroke-width="3" fill="none" stroke-linecap="round"/>
+          <circle cx="150" cy="215" r="7" fill="#E8D8C4" stroke="#561C24" stroke-width="2"/>
+          <!-- perisai + gembok -->
+          <g transform="translate(200 236)">
+            <path d="M40 0 L80 14 V46 C80 72 62 88 40 98 C18 88 0 72 0 46 V14 Z" fill="#561C24" stroke="#E8D8C4" stroke-width="3"/>
+            <rect x="27" y="46" width="26" height="22" rx="4" fill="#E8D8C4"/>
+            <path d="M32 46 V40 a8 8 0 0 1 16 0 V46" stroke="#E8D8C4" stroke-width="4" fill="none" stroke-linecap="round"/>
+            <circle cx="40" cy="57" r="3" fill="#561C24"/>
+          </g>
+        </svg>
+      </div>
+    </div>
+
+    <div class="hero-foot">
+      <div class="chips">
+        <span class="chip">NIM 240511160</span>
+        <span class="chip">TI24D</span>
+        <span class="chip">Dosen: Bu Dian Novianti, M.Kom.</span>
+        <span class="chip">Teknik Informatika · UM Cirebon</span>
+      </div>
+      <div class="hero-url">ANALISIS &amp; DESAIN PERANGKAT LUNAK</div>
+    </div>
+  </header>
+
+  <!-- ================= LINEAR SHOWCASE FLOW ================= -->
+  <main class="flow">
+
+    <!-- 01 LATAR BELAKANG & IDE -->
+    <section class="card dark band reveal" id="latar">
+      <div class="band-side"><div class="num">01</div><div class="eyebrow">Latar Belakang &amp; Ide</div></div>
+      <div class="band-main">
+        <h2>Kenapa sistem ini dibuat?</h2>
+        <div class="script-sub">masalah, ide, dan tujuan</div>
+        <p class="lead">Toko Nadhiya Photocopy (Ciawigebang, Kabupaten Kuningan) setiap hari memproses dokumen pelanggan seperti KTP, kartu keluarga, ijazah, dan berkas administrasi. Namun akses ke komputer dan aplikasi toko hanya dijaga satu kata sandi, tanpa catatan aktivitas, tanpa deteksi penebakan kata sandi (<em>brute force</em>), dan tanpa pemblokiran sumber serangan.</p>
+        <div class="two">
+          <div class="mini">
+            <h3>Masalah yang Ditemukan</h3>
+            <ul>
+              <li>Otentikasi hanya satu faktor (kata sandi).</li>
+              <li>Tidak ada catatan aktivitas yang dapat diaudit.</li>
+              <li>Tidak ada deteksi login berulang atau abnormal.</li>
+              <li>Tidak ada pemblokiran otomatis sumber serangan.</li>
+              <li>Pemilik tidak punya <em>dashboard</em> atau laporan keamanan.</li>
+              <li>Pengetahuan keamanan siber pengelola masih terbatas.</li>
+            </ul>
+          </div>
+          <div class="mini">
+            <h3>Ide Solusi</h3>
+            <p>Sistem informasi <em>cyber security</em> sederhana berbasis aplikasi desktop (Java Swing + MySQL) yang menggabungkan otentikasi dua faktor (2FA) berbasis TOTP, pencatatan aktivitas, deteksi <em>brute force</em>, pemblokiran IP otomatis, <em>dashboard real-time</em>, dan laporan audit bagi pemilik toko.</p>
+            <h3 style="margin-top:12px">Tujuan</h3>
+            <ul>
+              <li>Mengetahui kondisi keamanan sistem toko saat ini.</li>
+              <li>Membangun 2FA berbasis OTP dan <em>audit logging</em>.</li>
+              <li>Memblokir IP penyerang dalam waktu &lt; 1 detik.</li>
+              <li>Menyediakan <em>dashboard</em> dan laporan yang mudah dipahami.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+    <div class="link"></div>
+
+    <!-- 02 FITUR UTAMA -->
+    <section class="card paper band reveal" id="fitur">
+      <div class="band-side"><div class="num">02</div><div class="eyebrow">Fitur Utama</div></div>
+      <div class="band-main">
+        <h2>Apa saja yang bisa dilakukan?</h2>
+        <div class="script-sub">enam fitur inti sistem</div>
+        <div class="features">
+          <div class="feature"><span class="ico">🔐</span><h3>Otentikasi 2FA (TOTP)</h3><p>Kode 6 digit dari aplikasi <em>authenticator</em>, berganti tiap 30 detik, dengan toleransi satu langkah waktu.</p></div>
+          <div class="feature"><span class="ico">🧂</span><h3>Hash Kata Sandi</h3><p>Disimpan sebagai hash Argon2id (atau bcrypt) dengan <em>salt</em> unik, minimal 8 karakter.</p></div>
+          <div class="feature"><span class="ico">📝</span><h3>Audit Logging</h3><p>Login, logout, kegagalan, dan perubahan penting dicatat lengkap dengan IP dan waktu.</p></div>
+          <div class="feature"><span class="ico">🛡️</span><h3>Deteksi Brute Force</h3><p>5 kali gagal dalam 60 detik dari IP yang sama ditetapkan sebagai serangan.</p></div>
+          <div class="feature"><span class="ico">🚫</span><h3>Blokir IP Otomatis</h3><p>IP penyerang diblokir kurang dari 1 detik; pemilik bisa membuka blokir secara manual.</p></div>
+          <div class="feature"><span class="ico">📊</span><h3>Dashboard &amp; Laporan</h3><p>Statistik <em>real-time</em>, status keamanan berwarna, serta laporan log audit yang bisa dicetak.</p></div>
+        </div>
+        <div class="techs">
+          <span>Teknologi:</span>
+          <b>Java Swing</b><b>Apache NetBeans</b><b>MySQL</b><b>XAMPP</b><b>JDBC</b>
+        </div>
+      </div>
+    </section>
+    <div class="link"></div>
+
+    <!-- 03 KEBIJAKAN KEAMANAN -->
+    <section class="card dark band reveal" id="kebijakan">
+      <div class="band-side"><div class="num">03</div><div class="eyebrow">Kebijakan Keamanan</div></div>
+      <div class="band-main">
+        <h2>Aturan main sistem</h2>
+        <div class="script-sub">pertahanan berlapis (defense in depth)</div>
+        <div class="tbl-wrap">
+          <table class="tbl">
+            <thead><tr><th>Kebijakan</th><th>Ketentuan</th><th>Hak / Peran</th></tr></thead>
+            <tbody>
+              <tr><td>Penyimpanan kata sandi</td><td>Hash Argon2id (alternatif bcrypt) dengan <em>salt</em> unik, minimal 8 karakter</td><td rowspan="6" class="roles"><b>Admin</b><b>Kasir</b><b>Pemilik</b><small>Tiga peran dengan hak akses berbeda.</small></td></tr>
+              <tr><td>Faktor kedua</td><td>TOTP 6 digit, langkah waktu 30 detik, kunci rahasia unik per pengguna</td></tr>
+              <tr><td>Batas login gagal</td><td>5 kali dalam 60 detik dari IP yang sama dianggap serangan</td></tr>
+              <tr><td>Respons ancaman</td><td>IP penyerang diblokir otomatis dan dicatat</td></tr>
+              <tr><td>Pencatatan</td><td>Seluruh login, logout, kegagalan, dan perubahan penting dicatat</td></tr>
+              <tr><td>Hak akses</td><td>Admin, Kasir, dan Pemilik memiliki peran berbeda</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+    <div class="link"></div>
+
+    <!-- 04 FLOWCHART -->
+    <section class="card paper band reveal" id="alur">
+      <div class="band-side"><div class="num">04</div><div class="eyebrow">Alur Sistem</div></div>
+      <div class="band-main">
+        <h2>Flowchart otentikasi &amp; deteksi ancaman</h2>
+        <div class="script-sub">dari form login sampai blokir IP</div>
+        <div class="flowchart">
+          <div class="fc term">Mulai</div><div class="arrow"></div>
+          <div class="fc proc">Buka Form Login</div><div class="arrow"></div>
+
+          <div class="fc dec">IP diblokir?</div>
+          <div class="branch">
+            <div class="bchip yes"><span class="yn">YA</span>Akses ditolak &amp; dicatat ke log → Selesai</div>
+            <div class="bchip no"><span class="yn">TIDAK</span>Lanjut ke input kredensial ↓</div>
+          </div>
+          <div class="arrow"></div>
+
+          <div class="fc io">Input username &amp; kata sandi</div><div class="arrow"></div>
+
+          <div class="fc dec">Kredensial valid?</div>
+          <div class="branch">
+            <div class="bchip yes"><span class="yn">YA</span>Lanjut ke verifikasi TOTP ↓</div>
+            <div class="bchip no"><span class="yn">TIDAK</span>Catat kegagalan, hitung gagal per IP → cek ambang</div>
+          </div>
+          <div class="arrow"></div>
+
+          <div class="fc proc">Minta kode TOTP (aplikasi <em>authenticator</em>)</div><div class="arrow"></div>
+          <div class="fc io">Input kode TOTP</div><div class="arrow"></div>
+
+          <div class="fc dec">Kode TOTP valid?</div>
+          <div class="branch">
+            <div class="bchip yes"><span class="yn">YA</span>Catat LOGIN_SUKSES, tampilkan Dashboard → Selesai</div>
+            <div class="bchip no"><span class="yn">TIDAK</span>Catat GAGAL_OTP, hitung gagal per IP ↓</div>
+          </div>
+          <div class="arrow"></div>
+
+          <div class="fc proc">Catat kegagalan &amp; hitung gagal per IP</div><div class="arrow"></div>
+
+          <div class="fc dec">Gagal ≥ 5 dalam 60 detik?</div>
+          <div class="branch">
+            <div class="bchip bad"><span class="yn">YA</span>Catat ancaman, blokir IP otomatis → Selesai</div>
+            <div class="bchip no"><span class="yn">TIDAK</span>Kembali ke Form Login</div>
+          </div>
+          <div class="arrow"></div>
+          <div class="fc term">Selesai</div>
+        </div>
+        <p class="note-sm">Kegagalan pada tahap kata sandi maupun tahap TOTP sama-sama dihitung per IP, sehingga kedua faktor terlindungi oleh mekanisme pembatasan yang sama.</p>
+      </div>
+    </section>
+    <div class="link"></div>
+
+    <!-- 05 PHYSICAL SYSTEM -->
+    <section class="card dark band reveal" id="fisik">
+      <div class="band-side"><div class="num">05</div><div class="eyebrow">Physical System</div></div>
+      <div class="band-main">
+        <h2>Sistem fisik di toko</h2>
+        <div class="script-sub">semua berjalan di jaringan lokal</div>
+        <div class="diagram">
+          <svg class="dfd" viewBox="0 0 800 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Diagram physical system">
+            <defs>
+              <marker id="ar2" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#561C24"/></marker>
+              <marker id="ar2r" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0 0 L10 5 L0 10 Z" fill="#9b1c1c"/></marker>
+            </defs>
+            <rect x="16" y="14" width="768" height="248" rx="22" fill="none" stroke="#6D2932" stroke-width="2.5" stroke-dasharray="9 7"/>
+            <text x="400" y="42" text-anchor="middle" font-size="15">Jaringan Lokal Toko Nadhiya Photocopy</text>
+
+            <rect x="40" y="64" width="220" height="68" rx="10" fill="#E8D8C4" stroke="#561C24" stroke-width="2.5"/>
+            <text x="150" y="94" text-anchor="middle" font-size="14">Komputer Admin/Kasir</text>
+            <text x="150" y="114" text-anchor="middle" font-size="12">(Aplikasi Java GUI)</text>
+
+            <rect x="40" y="170" width="220" height="68" rx="10" fill="#C7B7A3" stroke="#561C24" stroke-width="2.5"/>
+            <text x="150" y="200" text-anchor="middle" font-size="14">Perangkat Pemilik Toko</text>
+            <text x="150" y="220" text-anchor="middle" font-size="12">(TOTP &amp; Dashboard)</text>
+
+            <rect x="340" y="120" width="150" height="76" rx="10" fill="#F3E8D9" stroke="#561C24" stroke-width="2.5"/>
+            <text x="415" y="164" text-anchor="middle" font-size="15">Router / Switch</text>
+
+            <path d="M585 130 V190 C585 206 760 206 760 190 V130" fill="#E8D8C4" stroke="#561C24" stroke-width="2.5"/>
+            <ellipse cx="672" cy="130" rx="87" ry="16" fill="#E8D8C4" stroke="#561C24" stroke-width="2.5"/>
+            <text x="672" y="160" text-anchor="middle" font-size="13">Server Basis Data</text>
+            <text x="672" y="178" text-anchor="middle" font-size="13">MySQL (XAMPP)</text>
+
+            <line x1="215" y1="132" x2="342" y2="156" stroke="#561C24" stroke-width="2.5" marker-start="url(#ar2)" marker-end="url(#ar2)"/>
+            <line x1="262" y1="204" x2="342" y2="178" stroke="#561C24" stroke-width="2.5" marker-start="url(#ar2)" marker-end="url(#ar2)"/>
+            <line x1="492" y1="158" x2="582" y2="158" stroke="#561C24" stroke-width="2.5" marker-start="url(#ar2)" marker-end="url(#ar2)"/>
+
+            <rect x="40" y="296" width="220" height="50" rx="10" fill="#6D2932" stroke="#561C24" stroke-width="2.5"/>
+            <text x="150" y="318" text-anchor="middle" font-size="14" style="fill:#E8D8C4">System Attacker</text>
+            <text x="150" y="335" text-anchor="middle" font-size="11" style="fill:#E8D8C4">(simulasi brute force)</text>
+            <line class="flowline" x1="262" y1="310" x2="390" y2="200" stroke="#9b1c1c" stroke-width="3" marker-end="url(#ar2r)"/>
+            <text x="340" y="296" text-anchor="middle" font-size="12" style="fill:#9b1c1c">percobaan login</text>
+          </svg>
+        </div>
+      </div>
+    </section>
+    <div class="link"></div>
+
+    <!-- 06 DIAGRAM KONTEKS -->
+    <section class="card paper band reveal" id="konteks">
+      <div class="band-side"><div class="num">06</div><div class="eyebrow">Diagram Konteks</div></div>
+      <div class="band-main">
+        <h2>Sistem &amp; kesatuan luarnya</h2>
+        <div class="script-sub">satu proses, tiga entitas</div>
+        <div class="diagram">
+          <svg class="dfd" viewBox="0 0 800 490" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Diagram konteks sistem cyber security">
+            <defs>
+              <marker id="ar3" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0 0 L10 5 L0 10 Z" fill="#561C24"/></marker>
+              <marker id="ar3r" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0 0 L10 5 L0 10 Z" fill="#9b1c1c"/></marker>
+            </defs>
+            <circle cx="170" cy="240" r="128" fill="#561C24"/>
+            <text x="170" y="206" text-anchor="middle" font-size="18" style="fill:#E8D8C4">0</text>
+            <text x="170" y="232" text-anchor="middle" font-size="14" style="fill:#E8D8C4">SISTEM CYBER</text>
+            <text x="170" y="252" text-anchor="middle" font-size="14" style="fill:#E8D8C4">SECURITY TOKO</text>
+            <text x="170" y="272" text-anchor="middle" font-size="14" style="fill:#E8D8C4">NADHIYA PHOTOCOPY</text>
+
+            <rect x="610" y="40" width="170" height="60" rx="10" fill="#E8D8C4" stroke="#561C24" stroke-width="3"/>
+            <text x="695" y="76" text-anchor="middle" font-size="16">Admin / Kasir</text>
+            <rect x="610" y="206" width="170" height="60" rx="10" fill="#C7B7A3" stroke="#561C24" stroke-width="3"/>
+            <text x="695" y="242" text-anchor="middle" font-size="16">Pemilik Toko</text>
+            <rect x="610" y="380" width="170" height="60" rx="10" fill="#6D2932" stroke="#561C24" stroke-width="3"/>
+            <text x="695" y="416" text-anchor="middle" font-size="16" style="fill:#E8D8C4">System Attacker</text>
+
+            <path class="flowline" d="M276 168 Q420 56 606 62" fill="none" stroke="#561C24" stroke-width="2.5" marker-end="url(#ar3)"/>
+            <text x="440" y="46" text-anchor="middle" font-size="11.5">hasil login,</text>
+            <text x="440" y="60" text-anchor="middle" font-size="11.5">penolakan akses</text>
+            <path class="flowline" d="M606 84 Q440 134 290 196" fill="none" stroke="#561C24" stroke-width="2.5" marker-end="url(#ar3)"/>
+            <text x="500" y="170" text-anchor="middle" font-size="11.5">username, kata sandi,</text>
+            <text x="500" y="184" text-anchor="middle" font-size="11.5">kode TOTP</text>
+
+            <line class="flowline" x1="298" y1="226" x2="606" y2="224" stroke="#561C24" stroke-width="2.5" marker-end="url(#ar3)"/>
+            <text x="452" y="204" text-anchor="middle" font-size="11.5">dashboard, daftar ancaman,</text>
+            <text x="452" y="218" text-anchor="middle" font-size="11.5">IP terblokir, laporan audit</text>
+            <line class="flowline" x1="606" y1="250" x2="298" y2="256" stroke="#561C24" stroke-width="2.5" marker-end="url(#ar3)"/>
+            <text x="452" y="278" text-anchor="middle" font-size="11.5">perintah blokir/buka IP,</text>
+            <text x="452" y="292" text-anchor="middle" font-size="11.5">filter laporan</text>
+
+            <path class="flowline" d="M262 330 Q420 390 606 396" fill="none" stroke="#9b1c1c" stroke-width="2.5" marker-end="url(#ar3r)"/>
+            <text x="440" y="352" text-anchor="middle" font-size="11.5" style="fill:#9b1c1c">penolakan akses &amp;</text>
+            <text x="440" y="366" text-anchor="middle" font-size="11.5" style="fill:#9b1c1c">pemblokiran IP</text>
+            <path class="flowline" d="M606 420 Q400 470 232 352" fill="none" stroke="#9b1c1c" stroke-width="2.5" marker-end="url(#ar3r)"/>
+            <text x="470" y="458" text-anchor="middle" font-size="11.5" style="fill:#9b1c1c">percobaan login berulang (brute force)</text>
+          </svg>
+        </div>
+        <div class="ent">
+          <div class="ent-card"><b>Admin / Kasir</b><small>Pengguna harian aplikasi toko</small><p>Mengirim username, kata sandi, kode TOTP. Menerima hasil login atau penolakan akses.</p></div>
+          <div class="ent-card"><b>Pemilik Toko</b><small>Pemantau &amp; pengambil keputusan</small><p>Mengirim perintah blokir/buka IP dan filter laporan. Menerima dashboard, ancaman, IP terblokir, laporan audit.</p></div>
+          <div class="ent-card danger"><b>System Attacker</b><small>Pihak tidak berwenang</small><p>Melakukan percobaan login berulang (<em>brute force</em>). Dijawab dengan penolakan dan pemblokiran IP.</p></div>
+        </div>
+      </div>
+    </section>
+    <div class="link"></div>
+
+    <!-- 07 DFD LEVEL 0 -->
+    <section class="card dark band reveal" id="dfd0">
+      <div class="band-side"><div class="num">07</div><div class="eyebrow">DFD Level 0</div></div>
+      <div class="band-main">
+        <h2>Empat proses utama</h2>
+        <div class="script-sub">dengan empat penyimpanan data</div>
+        <div class="diagram">
+          <svg class="dfd" viewBox="0 0 1000 540" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Data Flow Diagram level 0">
+            <defs>
+              <marker id="ar4" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M0 0 L9 4.5 L0 9 Z" fill="#561C24"/></marker>
+              <marker id="ar4r" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M0 0 L9 4.5 L0 9 Z" fill="#9b1c1c"/></marker>
+            </defs>
+            <style>.d0 text{font-size:11px}.d0 .big{font-size:13px}</style>
+            <g class="d0">
+              <!-- entitas -->
+              <rect x="10" y="232" width="112" height="48" rx="8" fill="#E8D8C4" stroke="#561C24" stroke-width="2.5"/><text class="big" x="66" y="261" text-anchor="middle">Admin / Kasir</text>
+              <rect x="232" y="56" width="132" height="46" rx="8" fill="#6D2932" stroke="#561C24" stroke-width="2.5"/><text class="big" x="298" y="84" text-anchor="middle" style="fill:#E8D8C4">System Attacker</text>
+              <rect x="600" y="40" width="130" height="46" rx="8" fill="#C7B7A3" stroke="#561C24" stroke-width="2.5"/><text class="big" x="665" y="68" text-anchor="middle">Pemilik Toko</text>
+
+              <!-- proses -->
+              <ellipse cx="300" cy="270" rx="76" ry="42" fill="#561C24"/><text class="big" x="300" y="266" text-anchor="middle" style="fill:#E8D8C4">1.0</text><text x="300" y="282" text-anchor="middle" style="fill:#E8D8C4">Otentikasi 2FA</text>
+              <ellipse cx="540" cy="290" rx="76" ry="42" fill="#561C24"/><text class="big" x="540" y="280" text-anchor="middle" style="fill:#E8D8C4">2.0</text><text x="540" y="295" text-anchor="middle" style="fill:#E8D8C4">Monitoring</text><text x="540" y="309" text-anchor="middle" style="fill:#E8D8C4">&amp; Logging</text>
+              <ellipse cx="740" cy="400" rx="84" ry="44" fill="#561C24"/><text class="big" x="740" y="390" text-anchor="middle" style="fill:#E8D8C4">3.0</text><text x="740" y="405" text-anchor="middle" style="fill:#E8D8C4">Deteksi Ancaman</text><text x="740" y="419" text-anchor="middle" style="fill:#E8D8C4">/ Blokir IP</text>
+              <ellipse cx="900" cy="170" rx="64" ry="40" fill="#561C24"/><text class="big" x="900" y="166" text-anchor="middle" style="fill:#E8D8C4">4.0</text><text x="900" y="182" text-anchor="middle" style="fill:#E8D8C4">Laporan Audit</text>
+
+              <!-- penyimpanan data -->
+              <rect x="10" y="440" width="150" height="44" fill="#F3E8D9" stroke="#561C24" stroke-width="2.5"/><line x1="34" y1="440" x2="34" y2="484" stroke="#561C24" stroke-width="2"/><text x="97" y="467" text-anchor="middle">D1 tb_user</text>
+              <rect x="590" y="176" width="170" height="44" fill="#F3E8D9" stroke="#561C24" stroke-width="2.5"/><line x1="614" y1="176" x2="614" y2="220" stroke="#561C24" stroke-width="2"/><text x="690" y="203" text-anchor="middle">D2 tb_log_aktivitas</text>
+              <rect x="860" y="290" width="130" height="44" fill="#F3E8D9" stroke="#561C24" stroke-width="2.5"/><line x1="884" y1="290" x2="884" y2="334" stroke="#561C24" stroke-width="2"/><text x="940" y="317" text-anchor="middle">D3 tb_ancaman</text>
+              <rect x="850" y="472" width="140" height="44" fill="#F3E8D9" stroke="#561C24" stroke-width="2.5"/><line x1="874" y1="472" x2="874" y2="516" stroke="#561C24" stroke-width="2"/><text x="932" y="499" text-anchor="middle">D4 tb_ip_blocked</text>
+
+              <!-- aliran data -->
+              <path d="M122 246 L226 256" stroke="#561C24" stroke-width="2" fill="none" marker-end="url(#ar4)"/><text x="170" y="222" text-anchor="middle">kredensial,</text><text x="170" y="234" text-anchor="middle">kode TOTP</text>
+              <path d="M226 282 L122 268" stroke="#561C24" stroke-width="2" fill="none" marker-end="url(#ar4)"/><text x="170" y="296" text-anchor="middle">hasil login</text>
+              <path d="M130 440 Q230 420 262 305" stroke="#561C24" stroke-width="2" fill="none" marker-end="url(#ar4)"/><text x="170" y="408" text-anchor="middle">data user</text>
+              <path d="M285 102 L288 226" stroke="#9b1c1c" stroke-width="2" fill="none" marker-end="url(#ar4r)"/><text x="278" y="150" text-anchor="end" style="fill:#9b1c1c">login</text><text x="278" y="163" text-anchor="end" style="fill:#9b1c1c">brute force</text>
+              <path d="M318 228 L316 102" stroke="#9b1c1c" stroke-width="2" fill="none" marker-end="url(#ar4r)"/><text x="326" y="156" text-anchor="start" style="fill:#9b1c1c">akses ditolak</text>
+
+              <path d="M376 272 L464 284" stroke="#561C24" stroke-width="2" fill="none" marker-end="url(#ar4)"/><text x="420" y="262" text-anchor="middle">kejadian login</text>
+              <path d="M580 252 Q620 232 650 222" stroke="#561C24" stroke-width="2" fill="none" marker-end="url(#ar4)"/><text x="560" y="236" text-anchor="end">simpan log</text>
+              <path d="M570 250 Q590 160 624 90" stroke="#561C24" stroke-width="2" fill="none" marker-end="url(#ar4)"/><text x="580" y="140" text-anchor="end">dashboard</text>
+
+              <path d="M700 220 Q712 300 728 357" stroke="#561C24" stroke-width="2" fill="none" marker-end="url(#ar4)"/><text x="706" y="290" text-anchor="end">log gagal login</text>
+              <path d="M760 198 L840 184" stroke="#561C24" stroke-width="2" fill="none" marker-end="url(#ar4)"/>
+              <path d="M720 86 C850 100 840 260 800 360" stroke="#561C24" stroke-width="2" fill="none" marker-end="url(#ar4)"/><text x="818" y="260" text-anchor="start">blokir/buka IP</text>
+              <path d="M730 54 Q870 30 900 130" stroke="#561C24" stroke-width="2" fill="none" marker-end="url(#ar4)"/><text x="820" y="48" text-anchor="middle">filter laporan</text>
+              <path d="M856 140 Q800 108 732 84" stroke="#561C24" stroke-width="2" fill="none" marker-end="url(#ar4)"/><text x="790" y="108" text-anchor="middle">laporan audit</text>
+
+              <path d="M670 378 Q620 350 604 326" stroke="#561C24" stroke-width="2" fill="none" marker-end="url(#ar4)"/><text x="610" y="372" text-anchor="end">notifikasi ancaman</text>
+              <path d="M824 392 Q850 360 880 336" stroke="#561C24" stroke-width="2" fill="none" marker-end="url(#ar4)"/><text x="862" y="376" text-anchor="start">simpan ancaman</text>
+              <path d="M800 436 Q830 460 852 478" stroke="#561C24" stroke-width="2" fill="none" marker-end="url(#ar4)"/><text x="796" y="470" text-anchor="end">simpan IP blokir</text>
+              <path d="M940 290 Q940 230 924 208" stroke="#561C24" stroke-width="2" fill="none" marker-end="url(#ar4)"/>
+              <path d="M850 500 C600 540 330 500 270 308" stroke="#561C24" stroke-width="2" fill="none" marker-end="url(#ar4)"/><text x="560" y="522" text-anchor="middle">status IP</text>
+            </g>
+          </svg>
+        </div>
+        <div class="procs">
+          <div class="proc-card"><b>1.0 Otentikasi 2FA</b><p>Memvalidasi kata sandi dan kode TOTP.</p></div>
+          <div class="proc-card"><b>2.0 Monitoring &amp; Logging</b><p>Mencatat aktivitas dan menyajikan dashboard.</p></div>
+          <div class="proc-card"><b>3.0 Deteksi Ancaman / Blokir IP</b><p>Menganalisis log, mendeteksi brute force, memblokir IP.</p></div>
+          <div class="proc-card"><b>4.0 Laporan Audit</b><p>Menyusun laporan dari log dan data ancaman.</p></div>
+        </div>
+      </div>
+    </section>
+    <div class="link"></div>
+
+    <!-- 08 DFD LEVEL 1 & 2 -->
+    <section class="card paper band reveal" id="dfd12">
+      <div class="band-side"><div class="num">08</div><div class="eyebrow">DFD Level 1 &amp; 2</div></div>
+      <div class="band-main">
+        <h2>Uraian tiap proses</h2>
+        <div class="script-sub">subproses dan deteksi login abnormal</div>
+
+        <h3 class="sub-h">DFD Level 1</h3>
+        <div class="l1">
+          <div class="l1-card">
+            <b>Proses 1.0 · Otentikasi 2FA</b>
+            <ol class="chain"><li>1.1 Periksa Status IP <small>baca D4</small></li><li>1.2 Validasi Kredensial <small>hash di D1</small></li><li>1.3 Siapkan Verifikasi TOTP <small>ambil kunci rahasia</small></li><li>1.4 Verifikasi Kode TOTP <small>toleransi ±1 langkah</small></li></ol>
+          </div>
+          <div class="l1-card">
+            <b>Proses 2.0 · Monitoring &amp; Logging</b>
+            <ol class="chain"><li>2.1 Catat Aktivitas <small>simpan ke D2</small></li><li>2.2 Rekap Statistik <small>dari D2 dan D3</small></li><li>2.3 Tampilkan Dashboard</li></ol>
+          </div>
+          <div class="l1-card">
+            <b>Proses 3.0 · Deteksi Ancaman &amp; Blokir IP</b>
+            <ol class="chain"><li>3.1 Analisis Log Login</li><li>3.2 Tetapkan Ancaman</li><li>3.3 Blokir IP Otomatis</li><li>3.4 Kelola Blokir Manual <small>oleh pemilik</small></li></ol>
+          </div>
+          <div class="l1-card">
+            <b>Proses 4.0 · Laporan Audit</b>
+            <ol class="chain"><li>4.1 Pilih Filter Laporan</li><li>4.2 Ambil Data <small>dari D2 dan D3</small></li><li>4.3 Susun &amp; Tampilkan Laporan</li></ol>
+          </div>
+        </div>
+        <p class="note-sm">Urutan kontrol sengaja berlapis: status IP diperiksa lebih dulu, lalu kredensial, lalu TOTP. IP yang sudah terblokir tidak perlu melalui proses hashing yang mahal.</p>
+
+        <h3 class="sub-h">DFD Level 2 · Proses 3.1 Analisis Log Login</h3>
+        <div class="tbl-wrap">
+          <table class="tbl light">
+            <thead><tr><th>Proses</th><th>Input</th><th>Output</th></tr></thead>
+            <tbody>
+              <tr><td>3.1.1 Ambil Kejadian Gagal Login</td><td>Catatan GAGAL_LOGIN dan GAGAL_OTP dari D2 pada 60 detik terakhir</td><td>Daftar kejadian gagal per IP</td></tr>
+              <tr><td>3.1.2 Hitung Frekuensi</td><td>Daftar kejadian gagal</td><td>Jumlah percobaan gagal per IP</td></tr>
+              <tr><td>3.1.3 Bandingkan dengan Ambang</td><td>Jumlah percobaan gagal</td><td>Status login abnormal (jumlah ≥ 5) atau tidak ada tindakan</td></tr>
+              <tr><td>3.2.1 Catat Ancaman</td><td>IP dengan status abnormal</td><td>Data ancaman (IP, jenis, tingkat, waktu) pada D3</td></tr>
+              <tr><td>3.3.1 Picu Blokir IP</td><td>Data ancaman</td><td>IP, alasan, waktu, dan status aktif pada D4</td></tr>
+              <tr><td>3.3.2 Kirim Peringatan</td><td>IP terblokir</td><td>Notifikasi pada dashboard Pemilik dan penolakan akses kepada penyerang</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+    <div class="link"></div>
+
+    <!-- 09 DATABASE -->
+    <section class="card dark band reveal" id="database">
+      <div class="band-side"><div class="num">09</div><div class="eyebrow">Desain Database</div></div>
+      <div class="band-main">
+        <h2>db_cybersecurity_nadhiya</h2>
+        <div class="script-sub">empat tabel MySQL</div>
+        <div class="dbs">
+          <div class="dbt"><div class="dbt-h">tb_user</div>
+            <div class="dbr"><code>id_user</code><span>INT AUTO_INCREMENT</span><em>Primary Key</em></div>
+            <div class="dbr"><code>username</code><span>VARCHAR(50)</span><em>Unik</em></div>
+            <div class="dbr"><code>password_hash</code><span>VARCHAR(255)</span><em>Hash Argon2id / bcrypt + salt</em></div>
+            <div class="dbr"><code>totp_secret</code><span>VARCHAR(64)</span><em>Kunci rahasia TOTP</em></div>
+            <div class="dbr"><code>nama_lengkap</code><span>VARCHAR(100)</span><em>Nama pengguna</em></div>
+            <div class="dbr"><code>role</code><span>ENUM</span><em>admin, kasir, pemilik</em></div>
+            <div class="dbr"><code>status_akun</code><span>ENUM</span><em>aktif, nonaktif</em></div>
+          </div>
+          <div class="dbt"><div class="dbt-h">tb_log_aktivitas</div>
+            <div class="dbr"><code>id_log</code><span>BIGINT AUTO_INCREMENT</span><em>Primary Key</em></div>
+            <div class="dbr"><code>id_user</code><span>INT NULL</span><em>FK → tb_user</em></div>
+            <div class="dbr"><code>username_input</code><span>VARCHAR(50)</span><em>Username yang dicoba</em></div>
+            <div class="dbr"><code>ip_address</code><span>VARCHAR(45)</span><em>Alamat IP</em></div>
+            <div class="dbr"><code>jenis_aktivitas</code><span>VARCHAR(30)</span><em>LOGIN_SUKSES, GAGAL_LOGIN, GAGAL_OTP, LOGOUT, BLOKIR_IP</em></div>
+            <div class="dbr"><code>keterangan</code><span>VARCHAR(255)</span><em>Detail aktivitas</em></div>
+            <div class="dbr"><code>waktu</code><span>DATETIME</span><em>Waktu kejadian</em></div>
+          </div>
+          <div class="dbt"><div class="dbt-h">tb_ancaman</div>
+            <div class="dbr"><code>id_ancaman</code><span>INT AUTO_INCREMENT</span><em>Primary Key</em></div>
+            <div class="dbr"><code>ip_address</code><span>VARCHAR(45)</span><em>Sumber ancaman</em></div>
+            <div class="dbr"><code>jenis_ancaman</code><span>VARCHAR(50)</span><em>Contoh: Brute Force</em></div>
+            <div class="dbr"><code>jumlah_percobaan</code><span>INT</span><em>Jumlah percobaan gagal</em></div>
+            <div class="dbr"><code>tingkat</code><span>ENUM</span><em>rendah, sedang, tinggi</em></div>
+            <div class="dbr"><code>waktu_deteksi</code><span>DATETIME</span><em>Waktu terdeteksi</em></div>
+          </div>
+          <div class="dbt"><div class="dbt-h">tb_ip_blocked</div>
+            <div class="dbr"><code>id_blokir</code><span>INT AUTO_INCREMENT</span><em>Primary Key</em></div>
+            <div class="dbr"><code>ip_address</code><span>VARCHAR(45)</span><em>IP yang diblokir</em></div>
+            <div class="dbr"><code>id_ancaman</code><span>INT NULL</span><em>FK → tb_ancaman</em></div>
+            <div class="dbr"><code>alasan</code><span>VARCHAR(255)</span><em>Alasan pemblokiran</em></div>
+            <div class="dbr"><code>waktu_blokir</code><span>DATETIME</span><em>Waktu mulai</em></div>
+            <div class="dbr"><code>status</code><span>ENUM</span><em>aktif, dibuka</em></div>
+          </div>
+        </div>
+
+        <h3 class="sub-h light">Relasi antartabel (ERD)</h3>
+        <div class="erd">
+          <div class="erd-box">tb_user</div><div class="erd-rel">1 ─── N</div><div class="erd-box">tb_log_aktivitas</div>
+          <div class="erd-gap"></div>
+          <div class="erd-box">tb_ancaman</div><div class="erd-rel">1 ─── N</div><div class="erd-box">tb_ip_blocked</div>
+        </div>
+        <p class="note-sm light">Log aktivitas menjadi sumber analisis pembentuk <code>tb_ancaman</code> melalui kesamaan <code>ip_address</code>. Status blokir disimpan sebagai <em>aktif</em> atau <em>dibuka</em> (tidak dihapus) agar riwayat tetap bisa diaudit.</p>
+      </div>
+    </section>
+    <div class="link"></div>
+
+    <!-- 10 ANTARMUKA -->
+    <section class="card paper band reveal" id="antarmuka">
+      <div class="band-side"><div class="num">10</div><div class="eyebrow">Desain Antarmuka</div></div>
+      <div class="band-main">
+        <h2>Lima form utama</h2>
+        <div class="script-sub">Java Swing, sederhana dan mudah dipakai</div>
+        <div class="ui">
+
+          <div class="win w-login">
+            <div class="win-bar">Login – Sistem Keamanan</div>
+            <div class="win-body">
+              <b>Login Sistem</b>
+              <div class="fld"><label>Username</label><span class="inp"></span></div>
+              <div class="fld"><label>Password</label><span class="inp">••••••••</span></div>
+              <span class="wbtn ok">Masuk</span>
+              <small>Pesan: kredensial salah / IP diblokir</small>
+            </div>
+          </div>
+
+          <div class="win w-otp">
+            <div class="win-bar">Verifikasi OTP 2FA (TOTP)</div>
+            <div class="win-body">
+              <b>Masukkan Kode TOTP</b>
+              <small>Kode 6 digit dari aplikasi authenticator</small>
+              <span class="inp otp">_ _ _ _ _ _</span>
+              <small>Kode berganti dalam: 00:30 detik</small>
+              <div class="wbtns"><span class="wbtn ok">Verifikasi</span><span class="wbtn info">Batal</span></div>
+            </div>
+          </div>
+
+          <div class="win w-dash">
+            <div class="win-bar">Dashboard Keamanan Real-time</div>
+            <div class="win-body">
+              <div class="tiles">
+                <div class="tile ti1"><small>Total Login</small><b>128</b></div>
+                <div class="tile ti2"><small>Gagal Login</small><b>17</b></div>
+                <div class="tile ti3"><small>Ancaman</small><b>3</b></div>
+                <div class="tile ti4"><small>IP Terblokir</small><b>2</b></div>
+              </div>
+              <div class="status"><span>Status keamanan:</span><i class="dot g"></i><i class="dot y"></i><i class="dot r"></i><small>hijau aman / kuning waspada / merah serangan</small></div>
+              <b class="mini-h">Aktivitas terbaru</b>
+              <div class="tbl-wrap"><table class="mtbl"><thead><tr><th>Waktu</th><th>Pengguna</th><th>IP Address</th><th>Aktivitas</th><th>Status</th></tr></thead>
+                <tbody>
+                  <tr><td>10:02:11</td><td>kasir1</td><td>192.168.1.12</td><td>LOGIN_SUKSES</td><td>Aman</td></tr>
+                  <tr><td>10:05:40</td><td>admin</td><td>192.168.1.20</td><td>GAGAL_OTP</td><td>Waspada</td></tr>
+                  <tr><td>10:07:03</td><td>-</td><td>192.168.1.77</td><td>GAGAL_LOGIN x5</td><td>Serangan</td></tr>
+                  <tr><td>10:07:03</td><td>-</td><td>192.168.1.77</td><td>BLOKIR_IP</td><td>Diblokir</td></tr>
+                </tbody></table></div>
+            </div>
+          </div>
+
+          <div class="win w-ip">
+            <div class="win-bar">Manajemen Blokir IP</div>
+            <div class="win-body">
+              <div class="tbl-wrap"><table class="mtbl"><thead><tr><th>IP</th><th>Alasan</th><th>Status</th></tr></thead>
+                <tbody>
+                  <tr><td>192.168.1.77</td><td>Brute force</td><td>aktif</td></tr>
+                  <tr><td>10.0.0.5</td><td>Brute force</td><td>aktif</td></tr>
+                  <tr><td>172.16.3.9</td><td>Manual</td><td>dibuka</td></tr>
+                </tbody></table></div>
+              <div class="fld"><label>IP</label><span class="inp"></span></div>
+              <div class="fld"><label>Alasan</label><span class="inp"></span></div>
+              <div class="wbtns"><span class="wbtn bad">Blokir</span><span class="wbtn ok">Buka Blokir</span><span class="wbtn info">Refresh</span></div>
+            </div>
+          </div>
+
+          <div class="win w-log">
+            <div class="win-bar">Log Audit</div>
+            <div class="win-body">
+              <div class="fld inline"><label>Tanggal</label><span class="inp sm">dd/mm/yyyy</span><span>s/d</span><span class="inp sm">dd/mm/yyyy</span><span class="wbtn ok">Cari</span></div>
+              <div class="fld inline"><label>Jenis</label><span class="inp sm wide">Semua aktivitas</span></div>
+              <div class="tbl-wrap"><table class="mtbl"><thead><tr><th>Waktu</th><th>Pengguna</th><th>Aktivitas</th></tr></thead>
+                <tbody>
+                  <tr><td>10:02</td><td>kasir1</td><td>LOGIN_SUKSES</td></tr>
+                  <tr><td>10:05</td><td>admin</td><td>GAGAL_OTP</td></tr>
+                  <tr><td>10:07</td><td>-</td><td>BLOKIR_IP</td></tr>
+                </tbody></table></div>
+              <span class="wbtn info">Cetak / Ekspor</span>
+            </div>
+          </div>
+
+        </div>
+        <p class="note-sm">Pesan kesalahan pada form login sengaja dibuat umum agar tidak membocorkan informasi kepada penyerang, sedangkan indikator warna pada dashboard membantu pemilik toko memahami status keamanan sekali pandang. Nilai pada tampilan di atas adalah contoh rancangan.</p>
+      </div>
+    </section>
+    <div class="link"></div>
+
+    <!-- 11 HASIL & PENGUJIAN -->
+    <section class="card dark band reveal" id="hasil">
+      <div class="band-side"><div class="num">11</div><div class="eyebrow">Hasil &amp; Pengujian</div></div>
+      <div class="band-main">
+        <h2>Apakah sistem berhasil?</h2>
+        <div class="script-sub">pengujian black box dan evaluasi</div>
+
+        <h3 class="sub-h light">Pengujian fungsional &amp; keamanan <span class="tag-ex">nilai contoh dari laporan</span></h3>
+        <div class="tbl-wrap">
+          <table class="tbl">
+            <thead><tr><th>No</th><th>Skenario Uji</th><th>Hasil yang Diharapkan</th><th>Status</th></tr></thead>
+            <tbody>
+              <tr><td>1</td><td>Login dengan kredensial benar</td><td>Diarahkan ke Form OTP</td><td><span class="ok-pill">Berhasil</span></td></tr>
+              <tr><td>2</td><td>Login dengan kata sandi salah</td><td>Ditolak, dicatat GAGAL_LOGIN</td><td><span class="ok-pill">Berhasil</span></td></tr>
+              <tr><td>3</td><td>Memasukkan kode TOTP benar</td><td>Masuk ke Dashboard</td><td><span class="ok-pill">Berhasil</span></td></tr>
+              <tr><td>4</td><td>Memasukkan kode TOTP salah</td><td>Ditolak, dicatat GAGAL_OTP</td><td><span class="ok-pill">Berhasil</span></td></tr>
+              <tr><td>5</td><td>Memasukkan kode TOTP kedaluwarsa</td><td>Ditolak</td><td><span class="ok-pill">Berhasil</span></td></tr>
+              <tr><td>6</td><td>5 kali gagal login dari IP yang sama dalam 60 detik</td><td>Terdeteksi brute force, IP diblokir</td><td><span class="ok-pill">Berhasil</span></td></tr>
+              <tr><td>7</td><td>Login dari IP yang sudah diblokir</td><td>Akses ditolak dan dicatat</td><td><span class="ok-pill">Berhasil</span></td></tr>
+              <tr><td>8</td><td>Pemilik membuka blokir IP</td><td>Status menjadi dibuka, IP dapat login lagi</td><td><span class="ok-pill">Berhasil</span></td></tr>
+              <tr><td>9</td><td>Menampilkan log dengan filter tanggal</td><td>Log tampil sesuai filter</td><td><span class="ok-pill">Berhasil</span></td></tr>
+              <tr><td>10</td><td>Kata sandi tersimpan di basis data</td><td>Berupa hash, bukan teks asli</td><td><span class="ok-pill">Berhasil</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 class="sub-h light">Waktu pemblokiran IP <span class="tag-ex">nilai contoh dari laporan</span></h3>
+        <div class="bars">
+          <div class="bar-row"><span>Percobaan 1</span><div class="bar-track"><div class="bar-fill" style="--w:21%"></div></div><b>0,21 dtk</b></div>
+          <div class="bar-row"><span>Percobaan 2</span><div class="bar-track"><div class="bar-fill" style="--w:18%"></div></div><b>0,18 dtk</b></div>
+          <div class="bar-row"><span>Percobaan 3</span><div class="bar-track"><div class="bar-fill" style="--w:25%"></div></div><b>0,25 dtk</b></div>
+          <div class="bar-row"><span>Percobaan 4</span><div class="bar-track"><div class="bar-fill" style="--w:20%"></div></div><b>0,20 dtk</b></div>
+          <div class="bar-row"><span>Percobaan 5</span><div class="bar-track"><div class="bar-fill" style="--w:23%"></div></div><b>0,23 dtk</b></div>
+          <div class="bar-row avg"><span>Rata-rata</span><div class="bar-track"><div class="bar-fill" style="--w:21%"></div></div><b>0,21 dtk</b></div>
+          <div class="bar-axis"><span>0</span><span>Target: &lt; 1 detik (batas kanan)</span><span>1 dtk</span></div>
+        </div>
+        <p class="note-sm light">Deteksi dijalankan langsung setiap kali gagal login tercatat (bukan proses terjadwal) dan kueri memanfaatkan indeks pada <code>ip_address</code> dan <code>waktu</code>, sehingga target di bawah 1 detik terpenuhi.</p>
+
+        <h3 class="sub-h light">Pemetaan ke NIST Cybersecurity Framework &amp; CIA Triad</h3>
+        <div class="tbl-wrap">
+          <table class="tbl">
+            <thead><tr><th>Fungsi NIST</th><th>Fitur Sistem</th><th>Aspek CIA</th></tr></thead>
+            <tbody>
+              <tr><td>Identify</td><td>Peran pengguna dan aset pada <code>tb_user</code></td><td>Integrity</td></tr>
+              <tr><td>Protect</td><td>Hash Argon2id dan 2FA TOTP</td><td>Confidentiality</td></tr>
+              <tr><td>Detect</td><td>Audit logging, deteksi brute force, dashboard</td><td>Integrity, Availability</td></tr>
+              <tr><td>Respond</td><td>Pemblokiran IP otomatis dan manual</td><td>Availability</td></tr>
+              <tr><td>Recover</td><td>Buka blokir dan laporan audit; pencadangan basis data disarankan</td><td>Availability</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+    <div class="link"></div>
+
+    <!-- 12 KESIMPULAN, KETERBATASAN, SARAN -->
+    <section class="card paper band reveal" id="penutup">
+      <div class="band-side"><div class="num">12</div><div class="eyebrow">Penutup</div></div>
+      <div class="band-main">
+        <h2>Kesimpulan &amp; langkah ke depan</h2>
+        <div class="script-sub">kesimpulan, keterbatasan, dan saran</div>
+
+        <div class="mini-paper">
+          <h3>Kesimpulan</h3>
+          <ul>
+            <li>Otentikasi satu faktor, tanpa log, dan tanpa pemblokiran adalah celah pada kerahasiaan, integritas, dan ketersediaan; dijawab dengan rancangan berlapis (hash kuat, 2FA TOTP, logging, deteksi &amp; blokir).</li>
+            <li>2FA TOTP membuat kata sandi yang bocor saja tidak cukup untuk masuk, dan kode dihasilkan lokal sehingga tidak membebani anggaran toko.</li>
+            <li>Pencatatan aktivitas berfungsi ganda: bukti akuntabilitas dan sumber data deteksi, dengan dashboard dan laporan yang mudah dipahami pemilik.</li>
+            <li>Deteksi berbasis aturan dan blokir IP otomatis bekerja dalam waktu kurang dari satu detik pada simulasi.</li>
+            <li>Rancangan selaras dengan fungsi Protect, Detect, Respond (NIST CSF) dan ketiga aspek CIA Triad.</li>
+          </ul>
+        </div>
+
+        <div class="two">
+          <div class="mini-paper">
+            <h3>Keterbatasan</h3>
+            <ul>
+              <li>Sistem sederhana untuk usaha skala kecil.</li>
+              <li>Pengujian simulasi di jaringan lokal, bukan serangan internet nyata.</li>
+              <li>Blokir IP tingkat aplikasi, bukan firewall jaringan.</li>
+              <li>Baru mendeteksi brute force dan login abnormal.</li>
+              <li>Aplikasi desktop, belum ada notifikasi jarak jauh.</li>
+              <li>Belum ada enkripsi basis data dan pencadangan otomatis.</li>
+              <li>Belum terintegrasi jaringan atau cloud.</li>
+            </ul>
+          </div>
+          <div class="mini-paper">
+            <h3>Saran Pengembangan</h3>
+            <ul>
+              <li>Notifikasi ancaman real-time ke ponsel pemilik.</li>
+              <li>Integrasi pemblokiran dengan firewall atau router.</li>
+              <li>Deteksi akses di luar jam kerja dan anomali data.</li>
+              <li>Enkripsi basis data dan pencadangan otomatis.</li>
+              <li>Kebijakan retensi dan perlindungan log.</li>
+              <li>Pelatihan kesadaran keamanan siber bagi pegawai.</li>
+              <li>Pengujian lanjutan (OWASP) dan pada UMKM lain.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+    <div class="link"></div>
+
+    <!-- 13 KEMBALI -->
+    <section class="card dark band reveal">
+      <div class="band-side"><div class="num">13</div><div class="eyebrow">Selesai</div></div>
+      <div class="band-main end">
+        <h2>Kembali ke portal tugas</h2>
+        <div class="script-sub">lanjut kumpulkan tugasmu</div>
+        <a href="../website-tugas-materi/index.html" class="btn" data-nav>⟵ Kembali ke Portal Tugas &amp; Materi</a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>© 2026 Nadhiya Auliyah Ramadhani · NIM 240511160 · TI24D · Website 2 dari 2</footer>
+</div>
+
+<!-- Tombol melayang kembali ke Website 1 -->
+<a href="../website-tugas-materi/index.html" class="back-btn" data-nav>⟵ Portal Tugas</a>
+
+<script src="js/script.js"></script>
+</body>
+</html>

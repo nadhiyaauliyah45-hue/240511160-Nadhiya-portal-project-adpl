@@ -1,0 +1,5 @@
+# Konfigurasi Supabase CLI (lokal / deploy function)
+# Fungsi ini TIDAK memakai verifikasi JWT bawaan karena aksi "login" dipanggil
+# sebelum ada sesi. Setiap aksi lain memvalidasi token sendiri di dalam kode.
+[functions.secure-auth]
+verify_jwt = false

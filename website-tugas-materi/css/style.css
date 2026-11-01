@@ -1,0 +1,381 @@
+/* =========================================================
+   1. VARIABEL WARNA & RESET (Coffee Theme)
+   ========================================================= */
+:root {
+  --maroon: #561C24;   /* Deep Maroon / Chocolate */
+  --rosewood: #6D2932; /* Warm Rosewood */
+  --taupe: #C7B7A3;    /* Soft Taupe / Beige */
+  --cream: #E8D8C4;    /* Light Cream */
+  --rose-light: #A5505B; /* rosewood versi lebih terang untuk tulisan tangan */
+  --paper: #F3E8D9;    /* Turunan cream untuk kartu terang */
+  --shadow: 0 10px 28px rgba(0, 0, 0, .25);
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Poppins', sans-serif;
+  color: var(--maroon);
+  line-height: 1.6;
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at 50% 115%, rgba(199, 183, 163, .45), transparent 55%),
+    linear-gradient(170deg, var(--maroon) 0%, var(--rosewood) 100%);
+  background-attachment: fixed;
+  animation: pageIn .7s ease both;
+}
+body.leaving { animation: pageOut .35s ease forwards; }
+
+/* =========================================================
+   2. ANIMASI GLOBAL
+   ========================================================= */
+@keyframes pageIn  { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+@keyframes pageOut { to   { opacity: 0; transform: translateY(-14px) scale(.99); } }
+@keyframes floaty  { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+@keyframes steam   { 0% { opacity: 0; transform: translateY(6px); } 50% { opacity: .8; } 100% { opacity: 0; transform: translateY(-10px); } }
+@keyframes pulse   { 0%,100% { box-shadow: 0 0 0 0 rgba(232,216,196,.55); } 50% { box-shadow: 0 0 0 14px rgba(232,216,196,0); } }
+
+.reveal { opacity: 0; transform: translateY(24px); transition: opacity .7s ease, transform .7s ease; }
+.reveal.visible { opacity: 1; transform: none; }
+
+/* =========================================================
+   3. LAYOUT HALAMAN
+   ========================================================= */
+.page { max-width: 1120px; margin: 0 auto; padding: 22px 18px 120px; }
+
+/* =========================================================
+   4. HERO (kartu putih besar seperti poster)
+   ========================================================= */
+.hero { background: var(--paper); border-radius: 12px; padding: 24px 36px 26px; box-shadow: var(--shadow); margin-bottom: 14px; overflow: hidden; }
+.hero-nav { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; }
+.hero-nav a, .nav-name {
+  font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: .85rem; letter-spacing: 2px;
+  color: var(--maroon); text-decoration: none; position: relative;
+}
+.nav-name { font-weight: 800; color: var(--rosewood); }
+.hero-nav a::after { content: ""; position: absolute; left: 0; bottom: -4px; width: 0; height: 2px; background: var(--maroon); transition: width .3s; }
+.hero-nav a:hover::after { width: 100%; }
+.nav-cta { background: var(--maroon); color: var(--cream) !important; padding: 8px 16px; border-radius: 999px; }
+.nav-cta::after { display: none; }
+
+.hero-body { display: grid; grid-template-columns: 1.35fr .65fr; align-items: center; gap: 10px; margin: 12px 0 8px; }
+.hero-title { position: relative; z-index: 2; }
+.t1 { font-family: 'Anton', sans-serif; font-size: clamp(2.2rem, 6.2vw, 4.6rem); line-height: 1; color: var(--maroon); letter-spacing: 1px; }
+.t2 { font-family: 'Anton', sans-serif; font-size: clamp(3.4rem, 10.5vw, 8.4rem); line-height: .92; color: var(--maroon); letter-spacing: 1px; }
+/* Teks tulisan tangan di hero: font & warna baru (Dancing Script, rosewood terang + bayangan taupe) */
+.script { white-space: nowrap; font-family: 'Dancing Script', cursive; font-weight: 700; font-size: clamp(2.6rem, 7.6vw, 6rem); line-height: 1; color: var(--rose-light); text-shadow: 3px 3px 0 var(--taupe); margin-top: -.42em; margin-left: 34%; position: relative; }
+
+.hero-art { display: flex; justify-content: center; }
+.avatar { width: 100%; max-width: 330px; animation: floaty 5s ease-in-out infinite; }
+.steam-1, .steam-2 { animation: steam 3s ease-in-out infinite; }
+.steam-2 { animation-delay: 1.2s; }
+
+.hero-foot { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; margin-top: 6px; }
+.icons { display: flex; gap: 14px; }
+.ic { width: 42px; height: 42px; border-radius: 50%; background: var(--maroon); display: grid; place-items: center; font-size: 1.15rem; transition: transform .25s; }
+.ic:hover { transform: translateY(-4px) rotate(-6deg); }
+.hero-url { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; letter-spacing: 3px; font-size: 1.05rem; color: var(--maroon); }
+
+/* =========================================================
+   5. MOSAIK KARTU
+   ========================================================= */
+.mosaic { display: grid; grid-template-columns: repeat(12, 1fr); gap: 14px; }
+.c-folders { grid-column: span 12; }
+.c-profil { grid-column: span 5; }
+.c-stat   { grid-column: span 7; }
+.c-form   { grid-column: span 5; }
+.c-submit { grid-column: span 7; }
+.c-tasks  { grid-column: span 5; }
+.c-materi { grid-column: span 12; }
+.c-steps  { grid-column: span 12; }
+.c-cta    { grid-column: span 12; }
+
+.card { border-radius: 10px; padding: 24px; box-shadow: var(--shadow); transition: transform .3s ease, box-shadow .3s ease; }
+.card:hover { transform: translateY(-4px); box-shadow: 0 16px 34px rgba(0, 0, 0, .35); }
+.card.paper { background: var(--paper); color: var(--maroon); }
+.card.dark  { background: var(--maroon); color: var(--cream); border: 1px solid rgba(199, 183, 163, .3); }
+
+.card h2 { font-family: 'Anton', sans-serif; font-weight: 400; font-size: 2rem; letter-spacing: 1px; line-height: 1.05; text-transform: uppercase; }
+.card.paper h2 { color: var(--maroon); }
+.card.dark h2 { color: var(--cream); }
+.script-sub { font-family: 'Sacramento', cursive; font-size: 1.7rem; line-height: 1; margin: 2px 0 14px; }
+.card.paper .script-sub { color: var(--rosewood); }
+.card.dark .script-sub { color: var(--taupe); }
+
+/* Profil */
+.kv { display: flex; justify-content: space-between; gap: 14px; padding: 9px 0; border-bottom: 1px dashed rgba(199, 183, 163, .4); }
+.kv span { font-size: .7rem; text-transform: uppercase; letter-spacing: 1.5px; color: var(--taupe); padding-top: 3px; white-space: nowrap; }
+.kv strong { font-family: 'Plus Jakarta Sans', sans-serif; font-size: .9rem; text-align: right; }
+
+/* =========================================================
+   6. FORM
+   ========================================================= */
+form label { display: block; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: .82rem; margin: 12px 0 6px; }
+form select, form input, form textarea {
+  width: 100%; padding: 12px 14px; border-radius: 8px; border: 1.5px solid var(--taupe);
+  background: var(--cream); color: var(--maroon); font-family: 'Poppins', sans-serif; font-size: .92rem; outline: none;
+  transition: border-color .25s, box-shadow .25s;
+}
+form select:focus, form input:focus, form textarea:focus { border-color: var(--rosewood); box-shadow: 0 0 0 4px rgba(109, 41, 50, .18); }
+.btn {
+  display: inline-flex; align-items: center; gap: 8px; cursor: pointer; border: none; text-decoration: none;
+  font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: .9rem;
+  padding: 12px 24px; border-radius: 999px; background: var(--maroon); color: var(--cream);
+  transition: transform .25s, background .25s;
+}
+.btn:hover { background: var(--rosewood); transform: translateY(-3px) scale(1.03); }
+.btn.small { padding: 7px 14px; font-size: .78rem; }
+.btn.ghost { background: transparent; color: var(--maroon); border: 1.5px solid var(--maroon); }
+.btn.ghost:hover { background: var(--maroon); color: var(--cream); }
+.btn.light { background: var(--cream); color: var(--maroon); }
+.btn.light:hover { background: var(--taupe); }
+.hint { font-size: .76rem; opacity: .75; margin-top: 8px; }
+.msg { margin-top: 10px; font-size: .85rem; font-weight: 500; min-height: 1.2em; }
+.msg.err { color: #9b1c1c; }
+.msg.ok  { color: #1f5d2e; }
+
+/* =========================================================
+   7. STATISTIK & PROGRESS BAR
+   ========================================================= */
+.big-num { font-family: 'Anton', sans-serif; font-size: 4.6rem; line-height: 1; color: var(--cream); margin-bottom: 10px; }
+.bar { height: 10px; border-radius: 999px; overflow: hidden; background: rgba(86, 28, 36, .15); }
+.bar > span { display: block; height: 100%; width: 0; border-radius: 999px; background: linear-gradient(90deg, var(--rosewood), var(--maroon)); transition: width 1s ease; }
+.c-stat .bar { background: rgba(232, 216, 196, .2); }
+.c-stat .bar > span { background: linear-gradient(90deg, var(--taupe), var(--cream)); }
+
+/* =========================================================
+   8. TUGAS DIKUMPULKAN
+   ========================================================= */
+.sub-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 12px; }
+.sub-item { background: var(--cream); border: 1.5px solid var(--taupe); border-radius: 8px; padding: 14px; animation: pageIn .5s ease both; transition: transform .25s; }
+.sub-item:hover { transform: translateY(-4px); }
+.sub-item h4 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: .88rem; line-height: 1.3; }
+.sub-item p { font-size: .72rem; opacity: .75; word-break: break-all; margin: 6px 0 10px; }
+.sub-actions { display: flex; gap: 8px; flex-wrap: wrap; }
+.empty { opacity: .7; font-size: .88rem; padding: 8px 0; }
+
+/* =========================================================
+   9. DAFTAR TUGAS
+   ========================================================= */
+.task { background: var(--cream); color: var(--maroon); border-radius: 8px; padding: 12px 14px; margin-bottom: 10px; transition: transform .25s; }
+.task:hover { transform: translateX(6px); }
+.task-head { display: flex; justify-content: space-between; align-items: center; gap: 10px; margin-bottom: 6px; }
+.task-head h4 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: .85rem; line-height: 1.3; }
+.task small { opacity: .8; font-size: .72rem; }
+.task .bar { margin-top: 8px; background: rgba(86, 28, 36, .15); }
+.badge { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: .65rem; padding: 4px 10px; border-radius: 999px; white-space: nowrap; }
+.badge.done { background: var(--maroon); color: var(--cream); }
+.badge.progress { background: var(--taupe); color: var(--maroon); }
+.badge.todo { border: 1.5px dashed var(--rosewood); color: var(--rosewood); }
+
+/* =========================================================
+   10. MATERI KULIAH
+   ========================================================= */
+.chapters { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+.chap { background: var(--cream); border: 1.5px solid var(--taupe); border-radius: 8px; padding: 12px; display: flex; gap: 12px; align-items: flex-start; transition: transform .25s, background .25s; }
+.chap:hover { transform: translateY(-4px); background: #f0e1cd; }
+.chap:last-child:nth-child(odd) { grid-column: span 2; }
+.chap .ico { flex: none; width: 44px; height: 44px; border-radius: 8px; background: var(--maroon); display: grid; place-items: center; font-size: 1.25rem; }
+.chap .bab { display: block; font-family: 'Anton', sans-serif; letter-spacing: 1.5px; font-size: .72rem; color: var(--rosewood); }
+.chap b { display: block; font-family: 'Plus Jakarta Sans', sans-serif; font-size: .82rem; line-height: 1.3; }
+.chap small { font-size: .72rem; opacity: .8; display: block; }
+
+/* =========================================================
+   11. LANGKAH (gaya "What's Next")
+   ========================================================= */
+.steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; position: relative; padding-top: 4px; }
+.steps::before { content: ""; position: absolute; top: 43px; left: 12%; right: 12%; border-top: 2px dashed var(--rosewood); opacity: .5; }
+.step { text-align: center; position: relative; }
+.circle { width: 78px; height: 78px; margin: 0 auto 10px; border-radius: 50%; background: var(--maroon); color: var(--cream); display: grid; place-items: center; font-size: 1.8rem; border: 4px solid var(--paper); box-shadow: 0 0 0 2px var(--maroon); transition: transform .3s; }
+.step:hover .circle { transform: scale(1.1) rotate(-6deg); }
+.step b { display: block; font-family: 'Plus Jakarta Sans', sans-serif; font-size: .85rem; }
+.step small { font-size: .72rem; opacity: .8; display: block; line-height: 1.35; }
+
+/* =========================================================
+   12. KARTU CTA
+   ========================================================= */
+.c-cta { display: flex; flex-direction: column; justify-content: center; align-items: flex-start; gap: 6px; }
+.cta-t1 { font-family: 'Anton', sans-serif; font-size: 2.3rem; line-height: 1; letter-spacing: 1px; }
+.cta-script { font-family: 'Sacramento', cursive; font-size: 3.4rem; line-height: .8; color: var(--taupe); margin-bottom: 6px; }
+.c-cta p { font-size: .82rem; opacity: .85; margin-bottom: 8px; }
+
+/* =========================================================
+   13. TOMBOL MELAYANG & FOOTER
+   ========================================================= */
+.float-nav {
+  position: fixed; right: 22px; bottom: 22px; z-index: 50;
+  background: var(--cream); color: var(--maroon); text-decoration: none;
+  font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: .92rem;
+  padding: 15px 26px; border-radius: 999px; animation: pulse 2.4s infinite; transition: transform .25s, background .25s;
+}
+.float-nav:hover { background: var(--taupe); transform: scale(1.07); }
+footer { text-align: center; margin-top: 28px; font-size: .78rem; color: var(--cream); opacity: .8; }
+
+/* =========================================================
+   14. RESPONSIF
+   ========================================================= */
+@media (max-width: 900px) {
+  .c-folders, .c-profil, .c-form, .c-stat, .c-submit, .c-tasks, .c-materi, .c-steps, .c-cta { grid-column: span 12; }
+  .hero { padding: 20px 22px; }
+  .hero-body { grid-template-columns: 1fr; }
+  .hero-art { order: -1; }
+  .avatar { max-width: 220px; }
+  .script { margin-left: 18%; }
+}
+@media (max-width: 640px) {
+  .hero-nav a:not(.nav-cta) { display: none; }
+  .chapters { grid-template-columns: 1fr; }
+  .chap:last-child { grid-column: auto; }
+  .steps { grid-template-columns: repeat(2, 1fr); row-gap: 18px; }
+  .steps::before { display: none; }
+  .hero-url { font-size: .85rem; letter-spacing: 2px; }
+  .float-nav { right: 12px; bottom: 12px; padding: 13px 20px; font-size: .82rem; }
+}
+
+/* =========================================================
+   15. INTEGRASI SUPABASE: form, kartu tugas, status koneksi
+   ========================================================= */
+form textarea { resize: vertical; min-height: 84px; }
+.row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.card-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; flex-wrap: wrap; }
+.btn:disabled { opacity: .6; cursor: wait; transform: none; }
+
+.tugas-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 12px; }
+.tugas-card { background: var(--cream); border: 1.5px solid var(--taupe); border-radius: 8px; padding: 16px; display: flex; flex-direction: column; gap: 8px; animation: pageIn .5s ease both; transition: transform .25s, box-shadow .25s; }
+.tugas-card:hover { transform: translateY(-4px); box-shadow: 0 10px 22px rgba(86, 28, 36, .2); }
+.tugas-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 10px; }
+.tugas-head h4 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: .95rem; line-height: 1.3; word-break: break-word; }
+.t-meta { font-size: .76rem; font-weight: 600; color: var(--rosewood); white-space: pre-wrap; }
+.t-detail { font-size: .82rem; line-height: 1.5; opacity: .9; flex: 1; word-break: break-word; }
+.tugas-card .btn { align-self: flex-start; }
+.empty.error { color: #9b1c1c; opacity: 1; font-weight: 500; }
+
+.conn { display: inline-block; margin-top: 10px; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: .72rem; padding: 5px 12px; border-radius: 999px; background: rgba(232, 216, 196, .15); border: 1px solid var(--taupe); }
+.conn.ok { color: #b9e4c4; }
+.conn.bad { color: #f2b8b8; }
+.conn.wait { color: var(--taupe); }
+
+/* Penyesuaian kartu maroon & layout baru */
+.chap { color: var(--maroon); }
+.c-steps .steps { grid-template-columns: repeat(2, 1fr); row-gap: 20px; }
+.c-steps .steps::before { display: none; }
+.c-cta { flex-direction: row; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 14px; }
+.c-cta .cta-t1 { display: inline; margin-right: 10px; }
+.c-cta .cta-script { display: inline; font-size: 3.4rem; }
+.c-cta p { margin: 4px 0 0; }
+
+@media (max-width: 640px) {
+  .row2 { grid-template-columns: 1fr; }
+  .c-cta { flex-direction: column; align-items: flex-start; }
+}
+
+/* =========================================================
+   16. UPLOAD FILE, TOMBOL AKSI, DAN MATERI DINAMIS
+   ========================================================= */
+form input[type="file"] { padding: 9px 12px; cursor: pointer; }
+form input[type="file"]::file-selector-button {
+  margin-right: 12px; padding: 8px 16px; border: none; border-radius: 999px; cursor: pointer;
+  background: var(--maroon); color: var(--cream); font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: .8rem;
+  transition: background .25s;
+}
+form input[type="file"]::file-selector-button:hover { background: var(--rosewood); }
+.opt { font-weight: 600; opacity: .65; font-size: .75rem; }
+.t-file { font-size: .76rem; font-weight: 600; word-break: break-all; }
+.tugas-actions { display: flex; gap: 8px; flex-wrap: wrap; }
+.chapters .empty { grid-column: 1 / -1; color: var(--taupe); }
+.chapters .empty.error { color: #f2b8b8; }
+.chap > div { min-width: 0; }
+.chap .tugas-actions { margin-top: 8px; }
+
+/* =========================================================
+   17. FORM TAMBAH MATERI (di kartu maroon)
+   ========================================================= */
+.card-top .btn.light { white-space: nowrap; }
+.materi-panel { background: rgba(232, 216, 196, .08); border: 1px dashed var(--taupe); border-radius: 10px; padding: 8px 18px 18px; margin-bottom: 16px; animation: pageIn .4s ease both; }
+.materi-panel[hidden] { display: none; }
+.card.dark form label { color: var(--cream); }
+.card.dark .opt { color: var(--taupe); opacity: 1; }
+.card.dark .hint { color: var(--taupe); }
+.card.dark .msg.ok { color: #b9e4c4; }
+.card.dark .msg.err { color: #f2b8b8; }
+.card.dark form input[type="file"]::file-selector-button { background: var(--taupe); color: var(--maroon); }
+.card.dark form input[type="file"]::file-selector-button:hover { background: var(--cream); }
+.card.dark .btn.ghost { color: var(--cream); border-color: var(--taupe); }
+.card.dark .btn.ghost:hover { background: var(--cream); color: var(--maroon); }
+.chap .btn.ghost { color: var(--maroon); border-color: var(--maroon); }
+.chap .btn.ghost:hover { background: var(--maroon); color: var(--cream); }
+
+
+/* =========================================================
+   FOLDER MATA KULIAH, TAB, DAN JAM LIVE (v4)
+   ========================================================= */
+[hidden] { display: none !important; }
+
+.course-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; margin-top: 14px; }
+.course {
+  position: relative; text-align: left; cursor: pointer;
+  background: var(--cream); color: var(--maroon);
+  border: 2px solid var(--taupe); border-radius: 14px;
+  padding: 12px 12px 12px 44px; min-height: 76px;
+  font-family: 'Poppins', sans-serif; transition: transform .2s, background .2s, border-color .2s;
+}
+.course:hover { transform: translateY(-2px); border-color: var(--rosewood); }
+.course b { display: block; font-family: 'Plus Jakarta Sans', sans-serif; font-size: .8rem; line-height: 1.25; overflow-wrap: anywhere; }
+.course small { display: block; margin-top: 4px; font-size: .68rem; opacity: .7; }
+.course .cnum {
+  position: absolute; left: 10px; top: 12px; width: 26px; height: 26px; border-radius: 50%;
+  background: var(--taupe); color: var(--maroon); display: grid; place-items: center;
+  font: 700 .78rem 'Plus Jakarta Sans', sans-serif;
+}
+.course.active { background: var(--maroon); color: var(--cream); border-color: var(--maroon); }
+.course.active .cnum { background: var(--cream); color: var(--maroon); }
+
+.crumb { margin-top: 16px; font: 600 .82rem 'Plus Jakarta Sans', sans-serif; color: var(--rosewood); }
+
+.tabs { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+.tab {
+  cursor: pointer; border: 2px solid var(--maroon); background: transparent; color: var(--maroon);
+  border-radius: 999px; padding: 7px 16px; font: 700 .8rem 'Plus Jakarta Sans', sans-serif;
+  transition: background .2s, color .2s;
+}
+.tab:hover { background: rgba(86, 28, 36, .1); }
+.tab.active { background: var(--maroon); color: var(--cream); }
+.tabs.sub { padding-left: 14px; border-left: 3px solid var(--taupe); }
+.tabs.sub .tab { font-size: .74rem; padding: 5px 13px; border-color: var(--rosewood); color: var(--rosewood); }
+.tabs.sub .tab.active { background: var(--rosewood); color: var(--cream); }
+
+.target { margin: 6px 0 10px; font: 600 .76rem 'Plus Jakarta Sans', sans-serif; color: var(--rosewood); }
+
+.live-box {
+  margin: 14px 0 4px; padding: 12px 14px; border-radius: 14px;
+  background: var(--maroon); color: var(--cream); text-align: center;
+}
+.live-box .hint { color: var(--taupe); margin: 6px 0 0; }
+.live-time { font: 800 2rem/1.1 'Plus Jakarta Sans', sans-serif; letter-spacing: .06em; font-variant-numeric: tabular-nums; margin-top: 6px; }
+.live-date { font-size: .8rem; color: var(--taupe); }
+.live-pill {
+  display: inline-flex; align-items: center; gap: 6px; padding: 2px 10px; border-radius: 999px;
+  background: var(--cream); color: var(--maroon); font: 800 .68rem 'Plus Jakarta Sans', sans-serif; letter-spacing: .12em;
+}
+.live-pill i { width: 8px; height: 8px; border-radius: 50%; background: #c0392b; animation: livepulse 1.2s infinite; }
+@keyframes livepulse { 0%,100% { opacity: 1; transform: scale(1); } 50% { opacity: .3; transform: scale(.7); } }
+.rel { font-style: italic; opacity: .85; }
+@media (prefers-reduced-motion: reduce) { .live-pill i { animation: none; } }
+
+@media (max-width: 900px) { .course-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 420px)  { .course-grid { grid-template-columns: minmax(0, 1fr); } .live-time { font-size: 1.6rem; } }
+
+
+/* =========================================================
+   EDIT & HAPUS (CRUD)
+   ========================================================= */
+.crud { margin-top: 8px; padding-top: 8px; border-top: 1px dashed rgba(109, 41, 50, .35); }
+.btn.danger { background: #8f1d1d; border-color: #8f1d1d; color: #fff; }
+.btn.danger:hover { background: #6f1313; }
+.dark-card .crud, .card.dark .crud { border-top-color: rgba(232, 216, 196, .35); }
+.card.dark .btn.ghost { color: var(--cream); border-color: var(--cream); }
+.dlg { border: 0; border-radius: 18px; padding: 22px; width: min(480px, 92vw); background: var(--cream); color: var(--maroon); box-shadow: 0 20px 60px rgba(0, 0, 0, .45); }
+.dlg::backdrop { background: rgba(40, 10, 15, .6); }
+.dlg h3 { font-family: 'Anton', sans-serif; font-weight: 400; letter-spacing: .05em; margin: 0 0 8px; }
+.dlg label { display: block; font-size: .78rem; font-weight: 700; margin: 10px 0 4px; }
+.dlg input, .dlg textarea { width: 100%; padding: 10px 12px; border: 2px solid var(--taupe); border-radius: 10px; background: #fff; font: inherit; }
+.dlg-actions { display: flex; gap: 8px; justify-content: flex-end; margin-top: 14px; }
