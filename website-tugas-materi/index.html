@@ -3,245 +3,376 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Portal Tugas & Materi | Nadhiya Auliyah Ramadhani</title>
+<title>Nadhiya's Academic Space | Portal Tugas &amp; Materi</title>
+<meta name="description" content="Portal tugas dan materi kuliah Nadhiya Auliyah, mahasiswa Teknik Informatika TI24D.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=Sacramento&family=Dancing+Script:wght@600;700&family=Plus+Jakarta+Sans:wght@600;700;800&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:ital,wght@0,500;0,600;0,700;0,800;1,500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
-<div class="page">
+<a class="skip" href="#dashboard">Lewati ke dashboard</a>
 
-  <!-- ================= HERO ================= -->
-  <header class="hero reveal">
-    <nav class="hero-nav">
-      <span class="nav-name">NADHIYA AULIYAH</span>
-      <a href="#folders">MATA KULIAH</a>
-      <a href="#kumpul">KUMPUL TUGAS</a>
-      <a href="#tugas">DAFTAR TUGAS</a>
-      <a href="#materi">MATERI</a>
-      <a href="../website-project-sistem/index.html" data-nav class="nav-cta">PROJECT ➜</a>
+<!-- ================= NAVBAR ================= -->
+<header class="nav" id="nav">
+  <div class="nav-in">
+    <a href="#home" class="logo" aria-label="Nadhiya, kembali ke Home">NADHIYA<span>.</span></a>
+
+    <nav class="nav-links" id="navLinks" aria-label="Navigasi utama">
+      <a href="#home" data-sec="home">Home</a>
+      <a href="#dashboard" data-sec="dashboard">Dashboard</a>
+      <a href="#tasks" data-sec="tasks">My Tasks</a>
+      <a href="#courses" data-sec="courses">Courses</a>
+      <a href="#about" data-sec="about">About Me</a>
+      <a href="../website-project-sistem/index.html" data-nav class="nav-project">Project ➜</a>
     </nav>
 
-    <div class="hero-body">
-      <div class="hero-title">
-        <div class="t1">PORTAL TUGAS</div>
-        <div class="t2">&amp; MATERI</div>
-        <div class="script">8 Mata Kuliah</div>
-      </div>
+    <span class="nav-tag">Academic Space <i></i> Informatics Student</span>
 
-      <!-- Ilustrasi SVG karakter perempuan berhijab -->
-      <div class="hero-art">
-        <svg class="avatar" viewBox="0 0 300 340" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Ilustrasi perempuan berhijab">
-          <circle cx="150" cy="170" r="140" fill="#C7B7A3"/>
-          <circle cx="150" cy="170" r="140" fill="none" stroke="#6D2932" stroke-width="3" stroke-dasharray="6 10"/>
-          <path d="M40 340 C40 250 90 225 150 225 C210 225 260 250 260 340 Z" fill="#6D2932"/>
-          <path d="M70 330 C60 270 85 215 150 205 C215 215 240 270 230 330 Z" fill="#561C24"/>
-          <path d="M110 330 C105 280 120 245 150 238 C180 245 195 280 190 330 Z" fill="#E8D8C4"/>
-          <rect x="136" y="190" width="28" height="30" rx="10" fill="#E8D8C4" stroke="#561C24" stroke-width="2"/>
-          <ellipse cx="150" cy="130" rx="78" ry="88" fill="#561C24"/>
-          <ellipse cx="150" cy="140" rx="60" ry="70" fill="#6D2932"/>
-          <ellipse cx="150" cy="140" rx="46" ry="54" fill="#E8D8C4" stroke="#561C24" stroke-width="2"/>
-          <path d="M104 118 C115 84 185 84 196 118 C180 106 120 106 104 118 Z" fill="#561C24"/>
-          <ellipse cx="132" cy="140" rx="5" ry="7" fill="#561C24"/>
-          <ellipse cx="168" cy="140" rx="5" ry="7" fill="#561C24"/>
-          <circle cx="134" cy="137" r="1.8" fill="#E8D8C4"/>
-          <circle cx="170" cy="137" r="1.8" fill="#E8D8C4"/>
-          <path d="M123 127 Q132 121 141 127" stroke="#561C24" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-          <path d="M159 127 Q168 121 177 127" stroke="#561C24" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-          <circle cx="120" cy="160" r="8" fill="#C7B7A3" opacity=".7"/>
-          <circle cx="180" cy="160" r="8" fill="#C7B7A3" opacity=".7"/>
-          <path d="M150 148 Q147 156 152 157" stroke="#6D2932" stroke-width="2" fill="none" stroke-linecap="round"/>
-          <path d="M136 170 Q150 182 164 170" stroke="#561C24" stroke-width="3" fill="none" stroke-linecap="round"/>
-          <circle cx="150" cy="215" r="7" fill="#E8D8C4" stroke="#561C24" stroke-width="2"/>
-          <g transform="translate(205 268)">
-            <path class="steam-1" d="M14 -8 Q8 -18 14 -26" stroke="#561C24" stroke-width="3" fill="none" stroke-linecap="round"/>
-            <path class="steam-2" d="M28 -8 Q22 -18 28 -26" stroke="#561C24" stroke-width="3" fill="none" stroke-linecap="round"/>
-            <path d="M0 0 H42 V22 C42 36 32 44 21 44 C10 44 0 36 0 22 Z" fill="#E8D8C4" stroke="#561C24" stroke-width="3"/>
-            <path d="M42 8 C58 8 58 30 42 30" fill="none" stroke="#561C24" stroke-width="3"/>
-            <rect x="3" y="2" width="36" height="6" fill="#561C24"/>
-          </g>
-          <g transform="translate(50 275)">
-            <rect width="46" height="34" rx="4" fill="#E8D8C4" stroke="#561C24" stroke-width="3"/>
-            <line x1="23" y1="0" x2="23" y2="34" stroke="#561C24" stroke-width="3"/>
-          </g>
-        </svg>
+    <button type="button" class="burger" id="burger" aria-label="Buka menu" aria-expanded="false" aria-controls="navLinks">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main>
+
+<!-- ================= HERO ================= -->
+<section class="hero" id="home">
+  <div class="hero-bgtext" aria-hidden="true">PORTAL</div>
+  <div class="dots d1" aria-hidden="true"></div>
+  <div class="dots d2" aria-hidden="true"></div>
+
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <p class="hello">HELLO, WELCOME TO MY SPACE.</p>
+      <h1 class="hero-name"><span>NADHIYA</span><span>AULIYAH</span></h1>
+      <p class="hero-id">Informatics Student <i>|</i> TI24D</p>
+      <p class="hero-desc">Mahasiswa Teknik Informatika Universitas Muhammadiyah Cirebon. Ini ruang akademik saya untuk mengelola tugas, materi, dan ujian dari delapan mata kuliah dalam satu tempat.</p>
+
+      <ul class="brand-list">
+        <li>Back-End Dev enthusiast | Learning DevSecOps 🔐</li>
+        <li>Building backend stuff with Node.js &amp; SQL</li>
+        <li>Tech, code &amp; system security 💻✨</li>
+      </ul>
+
+      <p class="motto">“Keep learning, keep building, keep growing.”</p>
+
+      <div class="hero-cta">
+        <a href="#dashboard" class="btn btn-primary" id="btnExplore">Explore My Dashboard <span aria-hidden="true">↓</span></a>
+        <a href="#about" class="btn btn-ghost">About Me</a>
       </div>
     </div>
 
-    <div class="hero-foot">
-      <div class="icons">
-        <span class="ic">📚</span><span class="ic">📝</span><span class="ic">☕</span>
-      </div>
-      <div class="hero-url">NIM 240511160 · TI24D</div>
+    <div class="hero-photo">
+      <div class="ring ring-a" aria-hidden="true"></div>
+      <div class="ring ring-b" aria-hidden="true"></div>
+      <div class="shape sq" aria-hidden="true"></div>
+      <figure class="photo-frame">
+        <img src="img/profile.jpg" width="900" height="1200" alt="Foto profil Nadhiya Auliyah" fetchpriority="high">
+      </figure>
+      <div class="chip chip-nim"><b>NIM</b> 240511160</div>
+      <div class="chip chip-class"><b>TI24D</b> Teknik Informatika</div>
     </div>
-  </header>
+  </div>
+</section>
 
-  <!-- ================= MOSAIK KARTU ================= -->
-  <main class="mosaic">
+<!-- ================= DASHBOARD ================= -->
+<section class="sec" id="dashboard">
+  <div class="wrap">
 
-    <!-- Folder mata kuliah: 8 mata kuliah, tiap mata kuliah punya Materi / Tugas / UTS / UAS -->
-    <section class="card paper c-folders reveal" id="folders">
-      <h2>Folder Mata Kuliah</h2>
-      <div class="script-sub">pilih mata kuliah, lalu pilih foldernya</div>
+    <div class="dash-head reveal">
+      <div class="dash-hello">
+        <img src="img/profile-sm.jpg" width="200" height="267" alt="" class="avatar-sm">
+        <div>
+          <h2 id="greeting">Good Morning, Nadhiya</h2>
+          <p id="todayDate" class="muted">&nbsp;</p>
+        </div>
+      </div>
+      <div class="dash-tools">
+        <span class="conn wait" id="connStatus">● Menghubungkan...</span>
+        <button type="button" class="btn btn-ghost btn-sm" id="btnRefresh">↻ Muat Ulang</button>
+      </div>
+    </div>
 
-      <div class="course-grid" id="courseGrid" role="tablist" aria-label="Daftar mata kuliah"></div>
+    <!-- Statistik akademik (diambil dari Supabase) -->
+    <div class="stat-grid reveal" id="statGrid" aria-live="polite">
+      <article class="stat">
+        <div class="stat-ico" aria-hidden="true">📚</div>
+        <div class="stat-num" id="stCourses">0</div>
+        <div class="stat-lbl">Total Mata Kuliah</div>
+      </article>
+      <article class="stat">
+        <div class="stat-ico" aria-hidden="true">📝</div>
+        <div class="stat-num" id="stTotal">–</div>
+        <div class="stat-lbl">Total Tugas</div>
+      </article>
+      <article class="stat ok">
+        <div class="stat-ico" aria-hidden="true">✅</div>
+        <div class="stat-num" id="stDone">–</div>
+        <div class="stat-lbl">Tugas Selesai</div>
+      </article>
+      <article class="stat warn">
+        <div class="stat-ico" aria-hidden="true">⏳</div>
+        <div class="stat-num" id="stPending">–</div>
+        <div class="stat-lbl">Tugas Belum Selesai</div>
+      </article>
+    </div>
+    <p class="stat-note reveal" id="statNote">Menghitung tugas mandiri dan kelompok dari database…</p>
 
-      <div class="crumb" id="crumb" aria-live="polite"></div>
+    <div class="dash-cols">
+      <!-- Aktivitas terbaru -->
+      <section class="card reveal" aria-labelledby="actTitle">
+        <div class="card-head">
+          <h3 id="actTitle">Aktivitas Terbaru</h3>
+          <a href="#tasks" class="link">Lihat semua ➜</a>
+        </div>
+        <ul class="activity" id="activityList">
+          <li class="skeleton-row"></li><li class="skeleton-row"></li><li class="skeleton-row"></li>
+        </ul>
+      </section>
+
+      <!-- Progres -->
+      <section class="card reveal progress-card" aria-labelledby="progTitle">
+        <div class="card-head"><h3 id="progTitle">Progres Tugas</h3></div>
+        <div class="donut" id="donut" role="img" aria-label="Persentase tugas selesai">
+          <svg viewBox="0 0 120 120" aria-hidden="true">
+            <circle cx="60" cy="60" r="50" class="donut-bg"/>
+            <circle cx="60" cy="60" r="50" class="donut-fg" id="donutFg" stroke-dasharray="0 314"/>
+          </svg>
+          <div class="donut-txt"><b id="donutPct">0%</b><span>selesai</span></div>
+        </div>
+        <ul class="legend">
+          <li><i class="dot ok"></i> Terkumpul <b id="lgDone">0</b></li>
+          <li><i class="dot prog"></i> Sedang dikerjakan <b id="lgProg">0</b></li>
+          <li><i class="dot todo"></i> Belum dikerjakan <b id="lgTodo">0</b></li>
+        </ul>
+      </section>
+    </div>
+  </div>
+</section>
+
+<!-- ================= MY TASKS ================= -->
+<section class="sec sec-alt" id="tasks">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <p class="eyebrow">My Tasks</p>
+      <h2>Tugas, Materi &amp; Ujian</h2>
+      <p class="muted">Pilih mata kuliah dan folder. Semua data tersimpan di Supabase.</p>
+    </div>
+
+    <!-- Navigasi folder -->
+    <div class="folder-bar reveal">
+      <label class="select-wrap">
+        <span>Mata kuliah</span>
+        <select id="courseSelect" aria-label="Pilih mata kuliah"></select>
+      </label>
       <div class="tabs" id="folderTabs" role="tablist" aria-label="Folder mata kuliah"></div>
       <div class="tabs sub" id="subTabs" role="tablist" aria-label="Jenis tugas" hidden></div>
-    </section>
+      <div class="crumb" id="crumb" aria-live="polite"></div>
+      <p class="prof-line">Dosen pengampu: <b id="profDosen">-</b></p>
+    </div>
 
-    <!-- Profil -->
-    <section class="card dark c-profil reveal" id="profil">
-      <h2>Profil Mahasiswa</h2>
-      <div class="script-sub">tentang saya</div>
-      <div class="kv"><span>Nama</span><strong>Nadhiya Auliyah Ramadhani</strong></div>
-      <div class="kv"><span>NIM / Kelas</span><strong>240511160 · TI24D</strong></div>
-      <div class="kv"><span>Program Studi</span><strong>Teknik Informatika, Fakultas Teknik</strong></div>
-      <div class="kv"><span>Universitas</span><strong>Universitas Muhammadiyah Cirebon · 2026</strong></div>
-      <div class="kv"><span>Mata Kuliah</span><strong id="profMk">-</strong></div>
-      <div class="kv"><span>Dosen Pengampu</span><strong id="profDosen">-</strong></div>
-    </section>
+    <!-- ===== Tugas / UTS / UAS ===== -->
+    <div class="task-layout" id="taskArea">
 
-    <!-- Statistik -->
-    <section class="card dark c-stat reveal">
-      <h2 id="statTitle">Terkumpul</h2>
-      <div class="script-sub" id="statSub">total tugas di database</div>
-      <div class="big-num" id="statPercent">0</div>
-      <p class="hint" id="statText">Memuat data...</p>
-      <span class="conn wait" id="connStatus">● Menghubungkan...</span>
-    </section>
+      <!-- Form pengumpulan (tersimpan ke Supabase) -->
+      <section class="card form-card reveal" id="kumpul" aria-labelledby="formTitle">
+        <h3 id="formTitle">Kumpulkan Tugas</h3>
+        <p class="target" id="formTarget"></p>
 
-    <!-- Form input tugas (disimpan ke Supabase) -->
-    <section class="card paper c-form reveal" id="kumpul">
-      <h2 id="formTitle">Kumpulkan Tugas</h2>
-      <div class="script-sub">tersimpan di database Supabase</div>
-      <div class="target" id="formTarget"></div>
-      <form id="submitForm" novalidate>
-        <label for="namaTugas">Nama Tugas</label>
-        <input type="text" id="namaTugas" placeholder="Contoh: Tugas 4 - Class Diagram &amp; ERD" maxlength="120" autocomplete="off" required>
+        <form id="submitForm" novalidate>
+          <div class="field">
+            <label for="namaTugas">Nama tugas</label>
+            <input type="text" id="namaTugas" placeholder="Contoh: Tugas 4 - Class Diagram &amp; ERD" maxlength="120" autocomplete="off" required>
+            <small class="err" id="err_namaTugas"></small>
+          </div>
 
-        <!-- Waktu pengumpulan LIVE: berjalan tiap detik, dicatat tepat saat tombol kirim ditekan -->
-        <div class="live-box" aria-live="off">
-          <span class="live-pill"><i></i>LIVE</span>
-          <div class="live-time" id="liveTime">--:--:--</div>
-          <div class="live-date" id="liveDate">&nbsp;</div>
-          <small class="hint" id="liveTz">Waktu pengumpulan dicatat otomatis saat tombol Kirim ditekan.</small>
+          <div class="field">
+            <label for="formCourse">Mata kuliah</label>
+            <select id="formCourse"></select>
+          </div>
+
+          <!-- Waktu pengumpulan LIVE: dicatat tepat saat tombol kirim ditekan -->
+          <div class="live-box" aria-live="off">
+            <span class="live-pill"><i></i>LIVE</span>
+            <div class="live-time" id="liveTime">--:--:--</div>
+            <div class="live-date" id="liveDate">&nbsp;</div>
+            <small id="liveTz">Waktu pengumpulan dicatat otomatis saat tombol Kirim ditekan.</small>
+          </div>
+          <input type="hidden" id="tanggalTugas">
+          <input type="hidden" id="jamTugas">
+
+          <div class="field">
+            <label for="statusTugas">Status pengerjaan</label>
+            <select id="statusTugas">
+              <option value="Terkumpul">Terkumpul</option>
+              <option value="Sedang dikerjakan">Sedang dikerjakan</option>
+              <option value="Belum dikerjakan">Belum dikerjakan</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="detailTugas">Deskripsi tugas</label>
+            <textarea id="detailTugas" rows="3" maxlength="500" placeholder="Tuliskan catatan singkat tentang tugas ini..."></textarea>
+          </div>
+
+          <div class="field">
+            <label for="fileTugas">Upload file <span class="opt">(Word / PDF, maks. 10 MB)</span></label>
+            <input type="file" id="fileTugas" accept=".pdf,.doc,.docx,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document">
+            <small class="err" id="err_fileTugas"></small>
+          </div>
+
+          <div class="field">
+            <label for="driveLink">Link Google Drive <span class="opt">(opsional jika sudah unggah file)</span></label>
+            <input type="url" id="driveLink" placeholder="https://drive.google.com/file/d/..." autocomplete="off">
+            <small class="err" id="err_driveLink"></small>
+          </div>
+          <p class="hint">Status “Terkumpul” memerlukan file atau link (minimal salah satu). Atur akses link ke “Siapa saja yang memiliki link”.</p>
+
+          <button type="submit" class="btn btn-primary btn-block" id="btnSubmit"><span class="btn-t">Kirim Tugas ➤</span></button>
+          <div class="msg" id="formMsg" role="status" aria-live="polite"></div>
+        </form>
+      </section>
+
+      <!-- Daftar tugas dari Supabase -->
+      <section class="card list-card reveal" id="tugas" aria-labelledby="listTitle">
+        <div class="card-head">
+          <div>
+            <h3 id="listTitle">Daftar Tugas</h3>
+            <p class="muted" id="listSub">riwayat dari Supabase</p>
+          </div>
         </div>
-        <input type="hidden" id="tanggalTugas">
-        <input type="hidden" id="jamTugas">
 
-        <label for="detailTugas">Detail / Deskripsi Tugas</label>
-        <textarea id="detailTugas" rows="3" maxlength="500" placeholder="Tuliskan catatan singkat tentang tugas ini..."></textarea>
-
-        <label for="fileTugas">File Tugas (Word / PDF)</label>
-        <input type="file" id="fileTugas" accept=".pdf,.doc,.docx,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document">
-        <p class="hint">Format PDF, DOC, atau DOCX, maksimal 10 MB. File disimpan di Supabase Storage.</p>
-
-        <label for="driveLink">Link Google Drive <span class="opt">(opsional jika sudah unggah file)</span></label>
-        <input type="url" id="driveLink" placeholder="https://drive.google.com/file/d/..." autocomplete="off">
-        <p class="hint">Isi file atau link (minimal salah satu). Akses link diatur ke “Siapa saja yang memiliki link”.</p>
-
-        <div style="margin-top:16px">
-          <button type="submit" class="btn" id="btnSubmit">Kirim Tugas ➤</button>
+        <div class="toolbar">
+          <input type="search" id="searchTugas" placeholder="Cari nama atau detail tugas..." aria-label="Cari tugas" autocomplete="off">
+          <select id="filterCourse" aria-label="Filter mata kuliah"></select>
+          <select id="filterStatus" aria-label="Filter status">
+            <option value="all">Semua status</option>
+            <option value="Terkumpul">Terkumpul</option>
+            <option value="Sedang dikerjakan">Sedang dikerjakan</option>
+            <option value="Belum dikerjakan">Belum dikerjakan</option>
+          </select>
         </div>
-        <div class="msg" id="formMsg" role="status" aria-live="polite"></div>
-      </form>
-    </section>
 
-    <!-- Daftar tugas dari Supabase -->
-    <section class="card paper c-submit reveal" id="tugas">
-      <div class="card-top">
+        <div class="tugas-grid" id="tugasList" aria-live="polite">
+          <div class="skeleton-card"></div><div class="skeleton-card"></div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ===== Materi ===== -->
+    <section class="card materi-card reveal" id="materi" hidden aria-labelledby="materiTitle">
+      <div class="card-head">
         <div>
-          <h2 id="listTitle">Daftar Tugas</h2>
-          <div class="script-sub" id="listSub">riwayat dari Supabase</div>
+          <h3 id="materiTitle">Materi Kuliah</h3>
+          <p class="muted" id="materiSub">pilih mata kuliah</p>
         </div>
-        <button type="button" class="btn small ghost" id="btnRefresh">↻ Muat Ulang</button>
-      </div>
-      <div class="tugas-grid" id="tugasList">
-        <p class="empty">Memuat data dari Supabase...</p>
-      </div>
-    </section>
-
-    <!-- Materi kuliah -->
-    <section class="card dark c-materi reveal" id="materi">
-      <div class="card-top">
-        <div>
-          <h2>Materi Kuliah</h2>
-          <div class="script-sub" id="materiSub">pilih mata kuliah</div>
-        </div>
-        <button type="button" class="btn small light" id="btnToggleMateri" aria-expanded="false" aria-controls="panelMateri">＋ Tambah Materi</button>
+        <button type="button" class="btn btn-primary btn-sm" id="btnToggleMateri" aria-expanded="false" aria-controls="panelMateri">＋ Tambah Materi</button>
       </div>
 
-      <!-- Form tambah materi (disimpan ke tabel "materi" di Supabase) -->
       <div class="materi-panel" id="panelMateri" hidden>
         <form id="formMateri" novalidate>
           <div class="row2">
-            <div>
+            <div class="field">
               <label for="materiBab">Bab / Pertemuan</label>
               <input type="text" id="materiBab" placeholder="Contoh: Bab 1" maxlength="30" autocomplete="off" required>
             </div>
-            <div>
+            <div class="field">
               <label for="materiUrutan">Urutan tampil <span class="opt">(opsional)</span></label>
               <input type="number" id="materiUrutan" placeholder="1" min="0" max="999" step="1">
             </div>
           </div>
-
-          <label for="materiJudul">Judul Materi</label>
-          <input type="text" id="materiJudul" placeholder="Contoh: Pengantar Rekayasa Perangkat Lunak" maxlength="150" autocomplete="off" required>
-
-          <label for="materiDeskripsi">Deskripsi Singkat <span class="opt">(opsional)</span></label>
-          <textarea id="materiDeskripsi" rows="2" maxlength="300" placeholder="Ringkasan isi materi..."></textarea>
-
-          <label for="materiFile">File Materi <span class="opt">(PDF / Word / PPT, maks. 10 MB)</span></label>
-          <input type="file" id="materiFile" accept=".pdf,.doc,.docx,.ppt,.pptx">
-
-          <label for="materiLink">Link Materi <span class="opt">(opsional, Drive / YouTube / lainnya)</span></label>
-          <input type="url" id="materiLink" placeholder="https://..." autocomplete="off">
-
-          <div style="margin-top:14px">
-            <button type="submit" class="btn light" id="btnMateri">Simpan Materi ➤</button>
+          <div class="field">
+            <label for="materiJudul">Judul materi</label>
+            <input type="text" id="materiJudul" placeholder="Contoh: Pengantar Rekayasa Perangkat Lunak" maxlength="150" autocomplete="off" required>
           </div>
+          <div class="field">
+            <label for="materiDeskripsi">Deskripsi singkat <span class="opt">(opsional)</span></label>
+            <textarea id="materiDeskripsi" rows="2" maxlength="300" placeholder="Ringkasan isi materi..."></textarea>
+          </div>
+          <div class="row2">
+            <div class="field">
+              <label for="materiFile">File materi <span class="opt">(PDF / Word / PPT, maks. 10 MB)</span></label>
+              <input type="file" id="materiFile" accept=".pdf,.doc,.docx,.ppt,.pptx">
+            </div>
+            <div class="field">
+              <label for="materiLink">Link materi <span class="opt">(opsional)</span></label>
+              <input type="url" id="materiLink" placeholder="https://..." autocomplete="off">
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary" id="btnMateri"><span class="btn-t">Simpan Materi ➤</span></button>
           <div class="msg" id="materiMsg" role="status" aria-live="polite"></div>
         </form>
       </div>
 
-      <div class="chapters" id="materiList">
-        <p class="empty">Memuat materi dari database...</p>
+      <div class="chapters" id="materiList" aria-live="polite">
+        <div class="skeleton-card"></div><div class="skeleton-card"></div>
       </div>
     </section>
+  </div>
+</section>
 
-    <!-- Langkah -->
-    <section class="card paper c-steps reveal">
-      <h2>Cara Mengumpulkan</h2>
-      <div class="script-sub">empat langkah mudah</div>
-      <div class="steps">
-        <div class="step"><div class="circle">📝</div><b>Isi Data</b><small>Nama, tanggal, jam, dan detail tugas</small></div>
-        <div class="step"><div class="circle">🔗</div><b>Unggah / Link</b><small>File Word/PDF dan atau link Google Drive</small></div>
-        <div class="step"><div class="circle">➤</div><b>Kirim</b><small>Klik tombol Kirim Tugas</small></div>
-        <div class="step"><div class="circle">✔</div><b>Cek Daftar</b><small>Tugas muncul sebagai kartu</small></div>
+<!-- ================= COURSES ================= -->
+<section class="sec" id="courses">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <p class="eyebrow">Courses</p>
+      <h2>Delapan Mata Kuliah</h2>
+      <p class="muted">Setiap mata kuliah punya folder Materi, Tugas (Mandiri &amp; Kelompok), UTS, dan UAS.</p>
+    </div>
+    <div class="course-grid" id="courseGrid"></div>
+  </div>
+</section>
+
+<!-- ================= ABOUT ME ================= -->
+<section class="sec sec-alt about" id="about">
+  <div class="wrap about-grid">
+    <figure class="about-photo reveal">
+      <img src="img/profile.jpg" width="900" height="1200" alt="Foto Nadhiya Auliyah" loading="lazy">
+    </figure>
+
+    <div class="about-copy reveal">
+      <p class="eyebrow">About Me</p>
+      <h2>Nadhiya Auliyah</h2>
+      <p class="muted">Mini portfolio mahasiswa Teknik Informatika.</p>
+
+      <dl class="kv-grid">
+        <div><dt>Program studi</dt><dd>Teknik Informatika</dd></div>
+        <div><dt>Kelas</dt><dd>TI24D</dd></div>
+        <div><dt>NIM</dt><dd>240511160</dd></div>
+        <div><dt>Universitas</dt><dd>Universitas Muhammadiyah Cirebon</dd></div>
+      </dl>
+
+      <div class="bio">
+        <p>Back-End Dev enthusiast | Learning DevSecOps.</p>
+        <p>Building backend stuff with Node.js &amp; SQL.</p>
+        <p>Tech, code &amp; system security.</p>
       </div>
-    </section>
 
-    <!-- CTA ke Website 2 -->
-    <section class="card dark c-cta reveal">
-      <div>
-        <div class="cta-t1">CYBER SECURITY</div>
-        <div class="cta-script">Dashboard</div>
-        <p>Buka aplikasi Sistem Informasi Cyber Security Toko Nadhiya Photocopy.</p>
-      </div>
-      <a href="../website-project-sistem/index.html" class="btn light" data-nav>Buka Website 2 ➜</a>
-    </section>
+      <h3 class="mini-h">Minat</h3>
+      <ul class="tags">
+        <li>Backend Development</li><li>DevSecOps</li><li>Database</li><li>Cyber Security</li>
+      </ul>
 
-  </main>
+      <blockquote class="motto-big">“Keep learning, keep building, keep growing.”</blockquote>
 
-  <footer>© 2026 Nadhiya Auliyah Ramadhani · NIM 240511160 · TI24D · Website 1 dari 2</footer>
-</div>
+      <a href="../website-project-sistem/index.html" data-nav class="btn btn-ghost">Lihat Project Cyber Security ➜</a>
+    </div>
+  </div>
+</section>
 
-<!-- Tombol melayang menuju Website 2 -->
-<a href="../website-project-sistem/index.html" class="float-nav" data-nav>Buka Cyber Security ➜</a>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <span>© 2026 Nadhiya Auliyah Ramadhani · NIM 240511160 · TI24D · Universitas Muhammadiyah Cirebon</span>
+    <a href="#home">Kembali ke atas ↑</a>
+  </div>
+</footer>
+
+<div class="toasts" id="toasts" aria-live="polite" aria-atomic="false"></div>
 
 <!-- Dialog Edit (dipakai untuk tugas dan materi) -->
 <dialog id="dlgEdit" class="dlg" aria-labelledby="dlgTitle">
@@ -250,14 +381,21 @@
     <div id="dlgFields"></div>
     <div class="msg" id="dlgMsg" role="status" aria-live="polite"></div>
     <div class="dlg-actions">
-      <button type="button" class="btn small ghost" id="dlgCancel">Batal</button>
-      <button type="submit" class="btn small" id="dlgSave">Simpan Perubahan</button>
+      <button type="button" class="btn btn-ghost btn-sm" id="dlgCancel">Batal</button>
+      <button type="submit" class="btn btn-primary btn-sm" id="dlgSave">Simpan Perubahan</button>
     </div>
   </form>
 </dialog>
 
+<!-- Dialog Detail -->
+<dialog id="dlgDetail" class="dlg" aria-labelledby="detTitle">
+  <div class="det-top"><h3 id="detTitle">Detail</h3><button type="button" class="x" id="detClose" aria-label="Tutup">✕</button></div>
+  <div id="detBody"></div>
+</dialog>
+
 <!-- Library Supabase (CDN) -->
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="js/config.js"></script>
 <script src="js/script.js"></script>
 </body>
 </html>
