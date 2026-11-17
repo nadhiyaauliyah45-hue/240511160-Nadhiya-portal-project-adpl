@@ -174,3 +174,9 @@ input[type=checkbox] { width: 20px; height: 20px; min-height: 0; accent-color: v
   body.printing .tbl th { background: #ddd !important; color: #000 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
   body.printing .chart .bar-a { fill: #2E7D4F; } body.printing .chart .bar-b { fill: #B3261E; }
 }
+
+/* grup menu & formulir keuangan */
+.mgrp { font-size: .68rem; letter-spacing: .12em; font-weight: 700; color: var(--cream); opacity: .55; padding: 14px 12px 4px; }
+.formgrid { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 12px; align-items: end; }
+.formgrid h3, .formgrid > .hint { grid-column: 1 / -1; }
+textarea { width: 100%; font: inherit; padding: 10px 12px; border: 1px solid var(--line, #d9c9b0); border-radius: 10px; }

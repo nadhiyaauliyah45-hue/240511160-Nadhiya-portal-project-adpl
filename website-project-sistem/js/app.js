@@ -5,7 +5,9 @@
   'use strict';
   var el = CS.el, $ = CS.$, current = null, rt = null, bellTimer = null;
 
-  var ORDER = ['dashboard', 'monitoring', 'ancaman', 'ip', 'audit', 'pengguna', 'laporan', 'pengaturan', 'profil'];
+  var ORDER = ['beranda', 'transaksi', 'lapkeu', 'kategori', 'dashboard', 'monitoring', 'ancaman', 'ip', 'audit', 'pengguna', 'laporan', 'laporanmasuk', 'pengaturan', 'profil'];
+  var GROUP = { beranda: 'KEUANGAN', dashboard: 'KEAMANAN (ADMIN)', laporanmasuk: 'KEAMANAN', profil: 'AKUN' };
+  function home() { return CS.user && CS.user.role === 'administrator' ? 'dashboard' : 'beranda'; }
 
   function allowed(id) { var p = CS.pages[id]; return p && CS.user && p.roles.indexOf(CS.user.role) > -1; }
 
@@ -13,6 +15,7 @@
     var nav = CS.clear($('menu'));
     ORDER.filter(allowed).forEach(function (id) {
       var p = CS.pages[id];
+      if (GROUP[id]) nav.appendChild(el('div', { class: 'mgrp', text: GROUP[id] }));
       nav.appendChild(el('a', { href: '#' + id, 'data-page': id, class: 'mi' }, el('span', { class: 'mi-ico', 'aria-hidden': 'true', text: p.icon }), el('span', { text: p.label })));
     });
     $('userName').textContent = CS.user.username;
@@ -20,7 +23,7 @@
   }
 
   CS.go = function (id) {
-    if (!allowed(id)) id = 'dashboard';
+    if (!allowed(id)) id = home();
     if (location.hash !== '#' + id) { history.replaceState(null, '', '#' + id); }
     current = id; renderPage();
   };
@@ -34,9 +37,9 @@
     window.scrollTo(0, 0);
   }
 
-  /* ---------- Notifikasi: bel + realtime (hanya Admin / Pemilik) ---------- */
+  /* ---------- Notifikasi: bel + realtime (hanya Admin) ---------- */
   CS.refreshBell = async function () {
-    if (!CS.user || CS.user.role === 'pegawai') { $('bell').hidden = true; return; }
+    if (!CS.user || CS.user.role !== 'administrator') { $('bell').hidden = true; return; }
     $('bell').hidden = false;
     var r = await CS.client().from('security_events').select('*').eq('status', 'open').order('created_at', { ascending: false }).limit(8);
     var list = CS.clear($('bellList'));
@@ -49,7 +52,7 @@
     });
   };
   function startRealtime() {
-    if (CS.user.role === 'pegawai') return;
+    if (CS.user.role !== 'administrator') return;
     try {
       rt = CS.client().channel('security-events').on('postgres_changes', { event: 'INSERT', schema: 'public', table: 'security_events' }, function (m) {
         var e = m.new || {}; CS.toast('Notifikasi: ' + (CS.EVENT_LABEL[e.event_type] || 'peristiwa keamanan baru') + (e.ip ? ' (' + e.ip + ')' : ''), e.severity === 'high' || e.severity === 'critical' ? 'err' : '');
@@ -68,7 +71,7 @@
 
   function onReady() {
     buildMenu(); CS.refreshBell(); startRealtime();
-    var id = (location.hash || '').replace('#', '') || 'dashboard';
+    var id = (location.hash || '').replace('#', '') || home();
     CS.go(id);
   }
 

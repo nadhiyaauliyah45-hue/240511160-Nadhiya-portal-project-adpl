@@ -56,8 +56,8 @@
   var P = CS.pages = {};
 
   /* =================== DASHBOARD =================== */
-  P.dashboard = { label: 'Dashboard', icon: '▦', roles: ALL, async render(box) {
-    var rg = CS.rangeIso(), canDetail = CS.user.role !== 'pegawai';
+  P.dashboard = { label: 'Dashboard', icon: '▦', roles: ADM, async render(box) {
+    var rg = CS.rangeIso(), canDetail = true;
     box.appendChild(pageHead('Dashboard Keamanan', 'Ringkasan aktivitas login dan ancaman dari data sebenarnya di database.',
       el('button', { type: 'button', class: 'btn ghost sm', text: '↻ Muat ulang', onclick: function () { CS.go('dashboard'); } })));
     box.appendChild(CS.rangeBar(function () { CS.go('dashboard'); }));
@@ -135,7 +135,7 @@
   }
 
   /* =================== MONITORING LOGIN =================== */
-  P.monitoring = { label: 'Monitoring Login', icon: '◉', roles: OWN, render: function (box) {
+  P.monitoring = { label: 'Monitoring Login', icon: '◉', roles: ADM, render: function (box) {
     var fStage = sel('fStage', [['', 'Semua tahap'], ['password', 'Kata sandi'], ['totp', 'Kode 2FA']]);
     var fRes = sel('fRes', [['', 'Semua hasil'], ['true', 'Berhasil'], ['false', 'Gagal']]);
     var fQ = el('input', { type: 'search', id: 'fQ', placeholder: 'Cari IP / username', maxlength: 60 });
@@ -160,7 +160,7 @@
   } };
 
   /* =================== DETEKSI ANCAMAN =================== */
-  P.ancaman = { label: 'Deteksi Ancaman', icon: '⚠', roles: OWN, render: function (box) {
+  P.ancaman = { label: 'Deteksi Ancaman', icon: '⚠', roles: ADM, render: function (box) {
     var fSev = sel('fSev', [['', 'Semua tingkat'], ['critical', 'Kritis'], ['high', 'Tinggi'], ['medium', 'Sedang'], ['low', 'Rendah'], ['info', 'Info']]);
     var fSt = sel('fSt', [['', 'Semua status'], ['open', 'Terbuka'], ['acknowledged', 'Ditinjau'], ['resolved', 'Selesai']]);
     var lv;
@@ -191,7 +191,7 @@
   } };
 
   /* =================== MANAJEMEN IP =================== */
-  P.ip = { label: 'IP Diblokir', icon: '⛔', roles: OWN, render: function (box) {
+  P.ip = { label: 'IP Diblokir', icon: '⛔', roles: ADM, render: function (box) {
     var fSt = sel('fIpSt', [['aktif', 'Sedang aktif'], ['semua', 'Semua riwayat']]);
     var fQ = el('input', { type: 'search', placeholder: 'Cari IP / alasan', maxlength: 60 });
     var lv, hist;
@@ -251,7 +251,7 @@
   /* =================== LOG AUDIT =================== */
   var AUDIT_ACTIONS = ['login_berhasil', 'login_gagal', '2fa_berhasil', '2fa_gagal', 'login_mencurigakan', 'serangan_akun_terdistribusi', 'ip_diblokir_otomatis', 'ip_diblokir_manual', 'ip_dibuka',
     'pengguna_ditambahkan', 'pengguna_diubah', 'pengguna_diaktifkan', 'pengguna_dinonaktifkan', 'peran_diubah', '2fa_direset', 'konfigurasi_diubah', 'peristiwa_diperbarui', 'logout', 'administrator_pertama_dibuat'];
-  P.audit = { label: 'Log Audit', icon: '☰', roles: OWN, render: function (box) {
+  P.audit = { label: 'Log Audit', icon: '☰', roles: ADM, render: function (box) {
     var fAct = sel('fAct', [['', 'Semua jenis aktivitas']].concat(AUDIT_ACTIONS.map(function (a) { return [a, a.replace(/_/g, ' ')]; })));
     var fSev = sel('fASev', [['', 'Semua tingkat'], ['info', 'Info'], ['low', 'Rendah'], ['medium', 'Sedang'], ['high', 'Tinggi'], ['critical', 'Kritis']]);
     var fUser = el('input', { type: 'search', placeholder: 'Pengguna / akun', maxlength: 60 });
@@ -276,7 +276,7 @@
   } };
 
   /* =================== PENGGUNA =================== */
-  P.pengguna = { label: 'Pengguna & Peran', icon: '☺', roles: OWN, async render(box) {
+  P.pengguna = { label: 'Pengguna & Peran', icon: '☺', roles: ADM, async render(box) {
     box.appendChild(pageHead('Manajemen Pengguna', isAdmin() ? 'Tambah pengguna, atur peran, aktifkan/nonaktifkan akun, dan reset 2FA.' : 'Mode lihat saja. Hanya Administrator yang dapat mengubah pengguna.'));
     if (isAdmin()) {
       var f = { u: el('input', { id: 'nuUser', maxlength: 32, autocomplete: 'off', placeholder: 'huruf kecil, angka . _ -' }), e: el('input', { id: 'nuEmail', type: 'email', maxlength: 120, autocomplete: 'off' }),
@@ -324,8 +324,8 @@
   } };
 
   /* =================== LAPORAN =================== */
-  P.laporan = { label: 'Laporan Keamanan', icon: '▤', roles: OWN, async render(box) {
-    box.appendChild(pageHead('Laporan Keamanan', 'Laporan mengikuti rentang waktu dan hak akses Anda.', null));
+  P.laporan = { label: 'Buat & Kirim Laporan', icon: '▤', roles: ADM, async render(box) {
+    box.appendChild(pageHead('Buat & Kirim Laporan Keamanan', 'Susun laporan dari rentang waktu, lalu kirim ke pemilik.', null));
     box.appendChild(CS.rangeBar(function () { CS.go('laporan'); }));
     var area = el('div', { id: 'reportArea', class: 'report' }, CS.loading()); box.appendChild(area);
     var rg = CS.rangeIso(), q = sb();
@@ -375,7 +375,7 @@
   } };
 
   /* =================== PENGATURAN KEAMANAN =================== */
-  P.pengaturan = { label: 'Pengaturan Keamanan', icon: '⚙', roles: OWN, async render(box) {
+  P.pengaturan = { label: 'Pengaturan Keamanan', icon: '⚙', roles: ADM, async render(box) {
     box.appendChild(pageHead('Pengaturan Keamanan', isAdmin() ? 'Ubah ambang deteksi dan durasi blokir. Setiap perubahan tercatat di log audit.' : 'Mode lihat saja. Hanya Administrator yang dapat mengubah pengaturan.'));
     var holder = el('div', null, CS.loading()); box.appendChild(holder);
     var r = await sb().from('security_settings').select('*').order('key');
@@ -406,7 +406,7 @@
       [['Username', u.username], ['Email', u.email || '-'], ['Nama', u.full_name || '-'], ['Peran', CS.ROLE_LABEL[u.role]]].map(function (r) { return el('div', { class: 'srow' }, el('span', { text: r[0] }), el('b', { text: r[1] })); }),
       el('div', { class: 'srow' }, el('span', { text: 'Autentikasi dua faktor' }), CS.badge(n ? 'Aktif (' + n + ' authenticator)' : 'Belum terdaftar', n ? 'green' : 'orange')),
       el('div', { class: 'srow' }, el('span', { text: 'Batas tidak aktif' }), el('b', { text: C.IDLE_MINUTES + ' menit' }))));
-    var perms = { administrator: 'Semua fitur: pengguna, peran, pengaturan, blokir IP, laporan.', pemilik: 'Dashboard, monitoring, ancaman, membuka blokir IP, log audit, laporan (tidak dapat mengubah pengguna/pengaturan).', pegawai: 'Hanya ringkasan angka di dashboard.' };
+    var perms = { administrator: 'Keuangan (catat, batalkan, kategori, laporan) + seluruh dashboard keamanan, pengguna, pengaturan, blokir IP, dan mengirim laporan ke pemilik.', pemilik: 'Melihat seluruh keuangan toko (catat, batalkan transaksi dengan alasan, laporan) dan menerima laporan keamanan dari admin. Tidak dapat membuka dashboard keamanan.', pegawai: 'Mencatat pemasukan/pengeluaran dan melihat catatan miliknya sendiri.' };
     box.appendChild(el('div', { class: 'panel' }, el('h3', { text: 'Hak akses peran Anda' }), el('p', { text: perms[u.role] })));
     box.appendChild(el('button', { type: 'button', class: 'btn', text: 'Keluar (Logout)', onclick: function () { CS.logout(false); } }));
   } };
